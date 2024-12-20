@@ -126,15 +126,21 @@
  */
 document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
   faqItem.addEventListener('click', () => {
+    const parent = faqItem.parentNode;
+    const isActive = parent.classList.contains('faq-active');
+
     // Remove 'faq-active' from all FAQ items
     document.querySelectorAll('.faq-item').forEach((item) => {
       item.classList.remove('faq-active');
     });
 
-    // Toggle 'faq-active' on the clicked item
-    faqItem.parentNode.classList.add('faq-active');
+    // If it wasn't already active, activate it
+    if (!isActive) {
+      parent.classList.add('faq-active');
+    }
   });
 });
+
 
 
   /**
