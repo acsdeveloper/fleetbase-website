@@ -1,0 +1,22 @@
+name: Deploy via SSH
+
+on:
+    workflow_dispatch:
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        - name: Execute deployment commands
+          uses: appleboy/ssh-action@v0.1.3
+          with:
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USERNAME }}
+            key: ${{ secrets.SSH_KEY }}
+            port: ${{ secrets.SSH_PORT }}
+            script: |
+                cd /var/www/html/fleetyes.com/htdocs
+                git pull
