@@ -312,4 +312,3 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
     });
   }
 })();
-
