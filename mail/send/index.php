@@ -1,8 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-require_once 'vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
@@ -25,9 +26,9 @@ if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
 $input = json_decode(file_get_contents('php://input'), true);
 
 // Check if the token is present and valid
-$validToken = $_ENV['SECRET_TOKEN'] || 'secret-token';
+$validToken = $_ENV['SECRET_TOKEN'];
 $headers = getallheaders();
-if (!isset($headers['token']) || $headers['token'] !== $validToken) {
+if (!isset($headers['Token']) || $headers['Token'] !== $validToken) {
     http_response_code(401);
     echo json_encode(['error' => 'Invalid or missing token']);
     exit;
@@ -37,7 +38,7 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;                                       // Enable verbose debug output
     $mail->isSMTP();                                            // Set mailer to use SMTP
     $mail->Host       = $_ENV['SMTP_HOST'];                    // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
