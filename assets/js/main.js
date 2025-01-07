@@ -235,65 +235,80 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
 
 })();
 (() => {
-  'use strict';
+  "use strict";
 
   // Fetch the form by class name
-  const form = document.querySelector('.php-email-form');
+  const form = document.querySelector(".php-email-form");
 
   if (form) {
-      form.addEventListener('submit', async (event) => {
-          event.preventDefault(); // Prevent default form submission
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent default form submission
 
-          // Perform form validation
-          if (!form.checkValidity()) {
-              event.stopPropagation();
-              form.classList.add('was-validated');
-              return;
-          }
+      // Perform form validation
+      if (!form.checkValidity()) {
+        event.stopPropagation();
+        form.classList.add("was-validated");
+        return;
+      }
 
-          // Gather form data
-          const formData = new FormData(form);
-          const data = {
-              firstName: formData.get('first-name'),
-              lastName: formData.get('last-name'), 
-              email: formData.get('email'),
-              message: formData.get('message'),
-              websiteDetails: 'This e-mail was sent from a contact form on Agile Cyber Solutions.',
-          };
+      // Show loading indicator
+      const loading = document.querySelector(".loading");
+      const errorMessage = document.querySelector(".error-message");
+      const sentMessage = document.querySelector(".sent-message");
+      loading.style.display = "block";
 
-          // Show loading indicator
-          const loading = document.querySelector('.loading');
-          const errorMessage = document.querySelector('.error-message');
-          const sentMessage = document.querySelector('.sent-message');
-          loading.style.display = 'block';
+      try {
+        // Ensure reCAPTCHA script is loaded
+        if (typeof grecaptcha === "undefined") {
+          throw new Error("reCAPTCHA is not loaded");
+        }
 
-          try {
-              // Send data via POST request
-              const response = await fetch('', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data),
-              });
+        // Execute reCAPTCHA
+        const recaptchaToken = await grecaptcha.execute(
+          "6LcnUbAqAAAAAM8QHeNPgdndBKrgYFvyT8XgmAFi",
+          { action: "submit" }
+        );
 
-              loading.style.display = 'none';
+        // Gather form data
+        const formData = new FormData(form);
+        const data = {
+          firstName: formData.get("first-name"),
+          lastName: formData.get("last-name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          // recaptchaToken, 
+        };
 
-              if (response.ok) {
-                  sentMessage.style.display = 'block';
-                  form.reset(); // Clear the form fields
-                  form.classList.remove('was-validated');
-              } else {
-                  const responseData = await response.json();
-                  errorMessage.style.display = 'block';
-                  errorMessage.textContent = responseData.message || 'Failed to send your message.';
-              }
-          } catch (error) {
-              loading.style.display = 'none';
-              errorMessage.style.display = 'block';
-              errorMessage.textContent = 'An error occurred while sending your message.';
-              console.error(error);
-          }
-      });
+        // Send data via POST request
+        const response = await fetch("https://fleetyes.com/mail/send/index.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        loading.style.display = "none";
+
+        if (response.ok) {
+          sentMessage.style.display = "block";
+          form.reset(); // Clear the form fields
+          form.classList.remove("was-validated");
+        } else {
+          const responseData = await response.json();
+          errorMessage.style.display = "block";
+          errorMessage.textContent =
+            responseData.message || "Failed to send your message.";
+        }
+      } catch (error) {
+        loading.style.display = "none";
+        errorMessage.style.display = "block";
+        errorMessage.textContent =
+          "An error occurred while sending your message. " +
+          error.message;
+        console.error(error);
+      }
+    });
   }
 })();
+

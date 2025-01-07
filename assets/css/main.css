@@ -132,7 +132,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #3d4d6a;
+  --background-color: var(--accent-color);
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
@@ -2076,6 +2076,9 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.privacy-policy .main {
+  margin-top: 100px;
+}
+.terms-and-conditions .main {
+  margin-top: 100px;
 }
