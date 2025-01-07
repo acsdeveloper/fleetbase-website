@@ -55,8 +55,8 @@ try {
     $mail->isHTML(true);                                        // Set email format to HTML
     $mail->Subject = 'New Contact Form Submission';
     $mail->Body    = 'You have received a new message from your website contact form.<br><br>' .
-                     '<b>First Name:</b> ' . htmlspecialchars($input['first-name']) . '<br>' .
-                     '<b>Last Name:</b> ' . htmlspecialchars($input['last-name']) . '<br>' .
+                     '<b>First Name:</b> ' . htmlspecialchars($input['firstName']) . '<br>' .
+                     '<b>Last Name:</b> ' . htmlspecialchars($input['lastName']) . '<br>' .
                      '<b>Email:</b> ' . htmlspecialchars($input['email']) . '<br>' .
                      '<b>Message:</b> ' . nl2br(htmlspecialchars($input['message'])) . '<br>';
     $mail->AltBody = 'You have received a new message from your website contact form.' . "\n\n" .
@@ -71,5 +71,5 @@ try {
     echo json_encode(['success' => true, 'message' => 'Message has been sent']);
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'error' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
+    echo json_encode(['success' => false, 'message' => 'Something went wrong!', 'error' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
 }

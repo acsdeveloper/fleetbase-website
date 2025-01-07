@@ -280,10 +280,11 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
         };
 
         // Send data via POST request
-        const response = await fetch("https://fleetyes.com/mail/send/index.php", {
+        const response = await fetch("/mail/send/index.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "token": 'zQew5L8ZHQb4VkBoEXM6JEtKw7WXByQVAzBccYRF76VBKpQVDbsrTw4gPDAo148K',
           },
           body: JSON.stringify(data),
         });
