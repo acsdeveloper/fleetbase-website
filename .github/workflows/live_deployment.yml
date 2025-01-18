@@ -1,4 +1,4 @@
-name: Deploy via SSH
+name: Live Deployment via SSH
 
 on:
     workflow_dispatch:
