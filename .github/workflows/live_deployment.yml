@@ -2,6 +2,9 @@ name: Live Deployment via SSH
 
 on:
     workflow_dispatch:
+    # push:
+    #   branches:
+    #     - main
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -18,6 +21,8 @@ jobs:
             username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
             key: ${{ secrets.SSH_KEY }}
             port: ${{ secrets.SSH_PORT || 22 }}
+            debug: true
             script: |
+                whoami
                 cd /var/www/html/fleetyes.com/htdocs
-                git pull
+                git pull origin main
