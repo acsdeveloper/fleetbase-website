@@ -1,7 +1,6 @@
 var cookieconsent = (function (e) {
     var t = {};
-    const termsAndConditions = 
-            "1. Use of Content: All information on this website is for general informational purposes only. Accuracy is not guaranteed, and content is subject to change without notice. <br/>2. No Liability: We are not liable for any damages or losses arising from the use of this website.<br/>3. Intellectual Property: All content, including text, images, and design, is owned by us and cannot be reproduced without permission <br/>4. Third-Party Links: We are not responsible for external websites linked here <br/> 5. Contact Form: By using the contact form, you consent to us storing and using your submitted data to respond to your inquiry. <br> 6. Privacy: Your personal information is handled as outlined in our Privacy Policy. <br/> 7. Governing Law: These terms are governed by the laws of [Your Jurisdiction]. <br/> By using this website, you agree to these terms.";
+    
     function i(n) {
         if (t[n]) return t[n].exports;
         var a = (t[n] = { i: n, l: !1, exports: {} });
