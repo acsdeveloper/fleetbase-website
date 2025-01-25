@@ -1479,7 +1479,7 @@ var cookieconsent = (function (e) {
                         t.classList.add("cc-cp-foot");
                         var i = document.createElement("div");
                         i.classList.add("cc-cp-foot-byline"),
-                            (i.innerHTML = o.magicTransform("Q29va2llIENvbnNlbnQgYnkgPGEgaHJlZj0iaHR0cHM6Ly93d3cuZnJlZXByaXZhY3lwb2xpY3kuY29tL2ZyZWUtY29va2llLWNvbnNlbnQvIiB0YXJnZXQ9Il9ibGFuayI+RnJlZVByaXZhY3lQb2xpY3kuY29tPC9hPg=="));
+                            (i.innerHTML = '');
                         var n = document.createElement("div");
                         n.classList.add("cc-cp-foot-button");
                         var a = document.createElement("button");
