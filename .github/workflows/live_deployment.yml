@@ -1,33 +1,38 @@
 name: Live Deployment via SSH
 
 on:
-    workflow_dispatch:
-    # push:
-    #   branches:
-    #     - main
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'main'
+
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.branch == 'main'
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Display secrets
+        run: |
+          echo "Deploying to production..."
+          echo ${{ secrets.SSH_HOST }}
+          echo ${{ secrets.SSH_USERNAME || 'ubuntu' }}
+          echo ${{ secrets.SSH_PORT || 22 }}
 
-        steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
-        
-        - name: Display secrets
-          run: |
-            echo ${{ secrets.SSH_HOST }}
-            echo ${{ secrets.SSH_USERNAME || 'ubuntu' }}
-            echo ${{ secrets.SSH_PORT || 22 }}
-
-        - name: Execute deployment commands
-          uses: appleboy/ssh-action@v1.2.0
-          with:
-            host: ${{ secrets.SSH_HOST }}
-            username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
-            password: ${{ secrets.SSH_PASS }}
-            port: ${{ secrets.SSH_PORT || 22 }}
-            debug: true
-            script: |
-                whoami
-                cd /var/www/html/fleetyes.com/htdocs
-                git pull origin main
+      - name: Execute deployment commands
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
+          password: ${{ secrets.SSH_PASS }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          debug: true
+          script: |
+            whoami
+            cd /var/www/html/fleetyes.com/htdocs
+            git pull origin main
