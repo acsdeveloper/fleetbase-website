@@ -1729,7 +1729,7 @@ section,
 .pricing-section p {
   font-size: 22px;
 }
-#pricing-section .list li::marker {
+#pricing .list li::marker {
   content: "*";
 }
 .pricing-section .price {
