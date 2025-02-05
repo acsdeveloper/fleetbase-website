@@ -1716,6 +1716,31 @@ section,
   }
 }
 
+.pricing-section {
+  background: url('../../assets/img/pricing_section_bg.webp') no-repeat center center;
+  background-size: cover;
+  min-height: 800px;
+  background-position-y: -80px;
+  font-size: 24px;
+}
+.pricing-section h1 {
+  font-size: 3rem;
+}
+.pricing-section p {
+  font-size: 22px;
+}
+#pricing-section .list li::marker {
+  content: "*";
+}
+.pricing-section .price {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.pricing-section .content-container {
+    flex-grow: 1;
+    min-height: 100%; 
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
