@@ -2299,7 +2299,7 @@ color-mix(in srgb, var(--background-color), transparent 35%);
     background: var(--accent-color);
     
 }
-.login.section .btn {
+.hero.section .btn {
   border-radius: 50px;
 }
 
