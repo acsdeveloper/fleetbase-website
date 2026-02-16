@@ -2166,10 +2166,9 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.privacy-policy .main {
-  margin-top: 100px;
-}
-.terms-and-conditions .main {
+.privacy-policy .main,
+.terms-and-conditions .main,
+.extension-privacy .main {
   margin-top: 100px;
 }
 
@@ -2303,6 +2302,13 @@ color-mix(in srgb, var(--background-color), transparent 35%);
   border-radius: 50px;
 }
 
-
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .hero p {
+    font-size: 14px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+}
 
 
