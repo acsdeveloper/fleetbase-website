@@ -29,10 +29,10 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
-          password: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           debug: true
           script: |
             whoami
             cd /var/www/html/fleetyes.com/htdocs
-            git pull origin main
+            sudo git pull origin main
