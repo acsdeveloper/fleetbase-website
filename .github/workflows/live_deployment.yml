@@ -19,13 +19,13 @@ jobs:
 
       - name: Inject Google Analytics
         run: |
-          # Define the snippet
           GA_SNIPPET='<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8ER3NY2XD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-N8ER3NY2XD");</script>'
           
-          # Use a different delimiter (like @) to avoid clashing with / in the HTML
-          # We find all .html files and replace the closing </head> tag
-          find . -name "*.html" -exec sed -i "s@</head>|${GA_SNIPPET}\n</head>@g" {} +
-
+          find . -name "*.html" | while read -r file; do
+            if ! grep -q "G-N8ER3NY2XD" "$file"; then
+              sed -i "s@</head>@${GA_SNIPPET}</head>@g" "$file"
+            fi
+          done
       - name: Copy files to server via SCP
         uses: appleboy/scp-action@v1
         with:
