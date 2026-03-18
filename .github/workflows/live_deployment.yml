@@ -22,15 +22,8 @@ jobs:
           GA_SNIPPET='<!-- Google tag (gtag.js) -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8ER3NY2XD"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag("js", new Date());\n  gtag("config", "G-N8ER3NY2XD");\n</script>'
           find . -name "*.html" | xargs sed -i "s|</head>|${GA_SNIPPET}\n</head>|g"
 
-      - name: Display secrets
-        run: |
-          echo "Deploying to production..."
-          echo ${{ secrets.SSH_HOST }}
-          echo ${{ secrets.SSH_USERNAME || 'ubuntu' }}
-          echo ${{ secrets.SSH_PORT || 22 }}
-
       - name: Copy files to server via SCP
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
