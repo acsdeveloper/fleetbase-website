@@ -15,12 +15,16 @@ jobs:
     environment: production
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Inject Google Analytics
         run: |
-          GA_SNIPPET='<!-- Google tag (gtag.js) -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8ER3NY2XD"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag("js", new Date());\n  gtag("config", "G-N8ER3NY2XD");\n</script>'
-          find . -name "*.html" | xargs sed -i "s|</head>|${GA_SNIPPET}\n</head>|g"
+          # Define the snippet
+          GA_CODE='<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8ER3NY2XD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-N8ER3NY2XD");</script>'
+          
+          # Use a different delimiter (like @) to avoid clashing with / in the HTML
+          # We find all .html files and replace the closing </head> tag
+          find . -name "*.html" -exec sed -i "s|</head>|${GA_CODE}</head>|g" {} +
 
       - name: Copy files to server via SCP
         uses: appleboy/scp-action@v1
