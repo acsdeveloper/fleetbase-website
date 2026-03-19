@@ -36,3 +36,8 @@ jobs:
           source: "."
           target: "/var/www/html/fleetyes.com/htdocs"
           overwrite: true
+          rm: true
+          exclude: |
+            .git*
+            .github*
+            node_modules
