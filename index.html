@@ -34,6 +34,63 @@
 </head>
 
 <body class="index-page">
+
+  <!-- VASP Amazon AFP Banner -->
+  <div id="vasp-banner" class="vasp-banner">
+    <div class="vasp-banner-inner">
+      <div class="vasp-banner-left">
+        <div class="vasp-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+          </svg>
+          <span>Official VAS Provider</span>
+        </div>
+        <div class="vasp-text">
+          <span class="vasp-headline">Officially recognised as an <span class="vasp-amazon">Amazon AFP</span> <strong>Value Added Service (VAS) Provider</strong></span>
+          <span class="vasp-divider" aria-hidden="true">·</span>
+          <span class="vasp-event">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:-2px;margin-right:5px;flex-shrink:0;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+              <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Join us at the <strong>AFFP Event 2026</strong> <span class="vasp-event-date">Rome · May 12</span>
+          </span>
+        </div>
+      </div>
+      <div class="vasp-banner-right">
+        <a href="/vas-provider.html" class="vasp-learn-more" aria-label="Learn more about FleetYes as an Amazon AFP VAS Provider">
+          VAS Provider
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/affp-event.html" class="vasp-learn-more vasp-learn-more--outline" aria-label="Learn more about the AFFP Event 2026">
+          AFFP Event
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="vasp-close" id="vasp-close-btn" aria-label="Close banner">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /VASP Amazon AFP Banner -->
+  <script>
+    (function () {
+      var b = document.getElementById('vasp-banner');
+      if (b) {
+        var h = b.getBoundingClientRect().height || 44;
+        document.documentElement.style.setProperty('--vasp-banner-height', h + 'px');
+      }
+    })();
+  </script>
+
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="/" class="logo d-flex align-items-center me-auto">
@@ -518,6 +575,34 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- VASP Banner Script -->
+  <script>
+    (function () {
+      var banner = document.getElementById('vasp-banner');
+      var closeBtn = document.getElementById('vasp-close-btn');
+
+      function syncBannerHeight() {
+        var h = (banner && banner.style.display !== 'none') ? banner.offsetHeight : 0;
+        document.documentElement.style.setProperty('--vasp-banner-height', (h || 56) + 'px');
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          banner.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+          banner.style.opacity = '0';
+          banner.style.maxHeight = '0';
+          setTimeout(function () {
+            banner.style.display = 'none';
+            document.documentElement.style.setProperty('--vasp-banner-height', '0px');
+          }, 350);
+        });
+      }
+
+      syncBannerHeight();
+      window.addEventListener('resize', syncBannerHeight);
+    })();
+  </script>
 </body>
 
 </html>

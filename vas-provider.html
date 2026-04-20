@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Amazon AFP VAS Provider – FleetYes</title>
+  <meta name="description" content="FleetYes is an officially recognised Amazon AFP Value Added Service (VAS) Provider, delivering specialist transport management tools built for Freight Partner operators." />
+
+  <!-- Favicons -->
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green:       #496453;
+      --green-dk:    #344a3c;
+      --green-lt:    #5a7a65;
+      --green-pale:  #eef3f0;
+      --charcoal:    #2f3237;
+      --slate:       #5e636e;
+      --off-white:   #f5f6f8;
+      --border:      #e2e6ea;
+    }
+
+    body { font-family: var(--default-font); }
+
+    .vas-page-wrap { padding-top: 72px; }
+
+    /* White header — always solid on this page */
+    .vas-page .header {
+      --background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .vas-page .header .logo img { filter: none; }
+    .vas-page .header .logo h1 { color: var(--charcoal); }
+    .vas-page .navmenu a { color: var(--charcoal); }
+    .vas-page.scrolled .header { box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+
+    /* ── Hero ────────────────────────────────── */
+    .vas-hero {
+      background: linear-gradient(135deg, #314338 0%, var(--green) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 88px 20px 72px;
+    }
+
+    .vas-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .vas-hero h1 {
+      font-family: var(--heading-font);
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    .vas-hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto 32px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    .vas-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--green) !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 14px 32px;
+      border-radius: 5px;
+      text-decoration: none !important;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+
+    .vas-hero-cta:hover {
+      background: var(--green-pale);
+      transform: translateY(-2px);
+      color: var(--green-dk) !important;
+    }
+
+    /* ── Overview cards ──────────────────────── */
+    .vas-overview {
+      background: var(--off-white);
+      padding: 64px 0;
+    }
+
+    .vas-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .vas-overview-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 3px solid var(--green);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .vas-overview-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+    }
+
+    .vas-overview-card .icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .vas-overview-card .icon-wrap svg { color: var(--green); }
+
+    .vas-overview-card h3 {
+      font-family: var(--heading-font);
+      font-size: 19px;
+      color: #1a1d21;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .vas-overview-card p {
+      font-size: 13.5px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Content sections ────────────────────── */
+    .vas-section {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .vas-section.alt { background: var(--off-white); }
+
+    .vas-section-tag {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green-dk);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .vas-section h2 {
+      font-family: var(--heading-font);
+      font-size: 2.4rem;
+      color: #1a1d21;
+      margin-bottom: 16px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .vas-section .lead {
+      font-size: 1rem;
+      color: var(--slate);
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+
+    .vas-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+
+    .vas-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .vas-checklist li .check {
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .vas-checklist li .check svg { color: #fff; }
+
+    /* ── Mock UI ─────────────────────────────── */
+    .mock-ui {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .mock-ui-bar {
+      background: var(--off-white);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .mock-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+    .mock-dot:nth-child(2) { background: #febc2e; }
+    .mock-dot:nth-child(3) { background: #28c840; }
+
+    .mock-body { padding: 24px; }
+
+    .mock-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--off-white);
+      border-radius: 7px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .mock-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .mock-badge.warn  { background: #f07800; }
+    .mock-badge.info  { background: var(--slate); }
+
+    .mock-confirm {
+      background: var(--green-pale);
+      color: var(--green-dk);
+      text-align: center;
+      padding: 12px;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* ── Final CTA ───────────────────────────── */
+    .vas-cta-strip {
+      background: var(--green);
+      padding: 72px 0;
+      text-align: center;
+    }
+
+    .vas-cta-strip h2 {
+      font-family: var(--heading-font);
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .vas-cta-strip p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 32px;
+    }
+
+    .btn-vas-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--green) !important;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 5px;
+      text-decoration: none !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-vas-cta:hover {
+      background: var(--green-pale);
+      transform: translateY(-2px);
+      color: var(--green-dk) !important;
+    }
+
+    @media (max-width: 768px) {
+      .vas-hero h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
+      .vas-section { padding: 52px 0; }
+    }
+  </style>
+</head>
+
+<body class="vas-page" style="--vasp-banner-height: 0px;">
+
+  <!-- Site Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#keyfeatures">Key Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <div class="vas-page-wrap">
+
+    <!-- Hero -->
+    <section class="vas-hero">
+      <div class="container">
+        <div class="vas-hero-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/></svg>
+          Official Amazon AFP VAS Provider
+        </div>
+        <h1>Intelligent Operations for<br>Amazon Freight Partners</h1>
+        <p>Managing middle-mile and linehaul operations is complex. FleetYes equips AFPs and RSPs with automated tools to streamline scheduling, ensure compliance, and maximize asset profitability.</p>
+        <a href="/#contact" class="vas-hero-cta">
+          Transform Your Fleet Today
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 1: Allocation -->
+    <section class="vas-section" id="allocation">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="vas-section-tag">Proprietary AI</span>
+            <h2>Automated Driver, Tractor &amp; Trailer Allocation</h2>
+            <p class="lead">Stop playing the guessing game with your daily dispatch. The FleetYes AI engine takes the manual labor out of rostering by automatically matching your available assets to open shifts.</p>
+            <p class="lead">Our system analyzes real-time variables to ensure you are dispatching the most efficient combinations every single day.</p>
+            <ul class="vas-checklist">
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Driver Matching:</strong> Accounts for HOS (Hours of Service) limits, route preferences, and performance history.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Tractor Optimization:</strong> Rotates assets based on upcoming preventative maintenance schedules to avoid costly breakdowns.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Trailer Tracking:</strong> Ensures empty/loaded statuses are tracked and paired correctly to prevent terminal bottlenecks.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="mock-ui">
+              <div class="mock-ui-bar">
+                <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+              </div>
+              <div class="mock-body">
+                <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">AI Match Confidence: 98%</p>
+                <div class="mock-row">
+                  <div><strong>Driver:</strong> John Doe &nbsp;<span style="font-size:12px;color:var(--slate);">HOS: 42/70</span></div>
+                  <span class="mock-badge">Ready</span>
+                </div>
+                <div class="mock-row">
+                  <div><strong>Tractor:</strong> #1042 &nbsp;<span style="font-size:12px;color:var(--slate);">PM Due: 4,000 mi</span></div>
+                  <span class="mock-badge">Assigned</span>
+                </div>
+                <div class="mock-row">
+                  <div><strong>Trailer:</strong> #T-88 &nbsp;<span style="font-size:12px;color:var(--slate);">Status: Empty</span></div>
+                  <span class="mock-badge">Assigned</span>
+                </div>
+                <div class="mock-confirm">Auto-Dispatch Confirmed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Relay -->
+    <section class="vas-section alt" id="relay">
+      <div class="container">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+          <div class="col-lg-6" data-aos="fade-left">
+            <span class="vas-section-tag">Seamless Integration</span>
+            <h2>Direct Amazon Relay Synchronization</h2>
+            <p class="lead">Middle-mile logistics move too fast for manual data entry. FleetYes integrates directly with the Amazon Relay network, giving your dispatchers a single pane of glass for all operations.</p>
+            <p class="lead">Never miss a spot block or get caught off-guard by a schedule change again. We pull the data you need, the second you need it.</p>
+            <ul class="vas-checklist">
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Real-time load board syncing and route visibility.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Automated ROC (Relay Operations Center) communication and status updates.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Instant mobile alerts for your drivers regarding delays, gate codes, or route adjustments.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="mock-ui">
+              <div class="mock-ui-bar">
+                <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+              </div>
+              <div class="mock-body">
+                <p style="font-size:13px;color:var(--slate);margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">
+                  <strong style="color:var(--charcoal);">Relay Load Board Sync</strong>
+                  <span style="color:var(--green);font-weight:700;font-size:12px;">● Live Status</span>
+                </p>
+                <div class="mock-row" style="border-left:4px solid var(--green);">
+                  <div>
+                    <strong>Load #VR-9921</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">JFK8 → EWR4</span>
+                  </div>
+                  <span class="mock-badge warn">In Transit</span>
+                </div>
+                <div class="mock-row" style="border-left:4px solid var(--border);">
+                  <div>
+                    <strong>Load #VR-9922</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">EWR4 → ABE2</span>
+                  </div>
+                  <span class="mock-badge info">Pending Dispatch</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Compliance -->
+    <section class="vas-section alt" id="compliance">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-left">
+            <span class="vas-section-tag">Protect Your Authority</span>
+            <h2>Compliance &amp; Driver Management</h2>
+            <p class="lead">Maintaining impeccable DOT scores and Amazon performance metrics is crucial for an AFP's survival. FleetYes acts as your digital safety manager.</p>
+            <p class="lead">We consolidate all telematics, safety events, and regulatory documents into one proactive dashboard, allowing you to coach drivers before minor issues become major liabilities.</p>
+            <ul class="vas-checklist">
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Automated tracking of CDL expirations, Medical Cards, and Clearinghouse queries.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Consolidated driver scorecards pulling data from your ELD and in-cab cameras.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Automated, verifiable coaching workflows for harsh braking, speeding, or HOS violations.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="mock-ui">
+              <div class="mock-ui-bar">
+                <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+              </div>
+              <div class="mock-body">
+                <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Driver Compliance Roster</p>
+                <div class="mock-row">
+                  <div>
+                    <strong>Sarah Jenkins</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">Safety Score: 98</span>
+                  </div>
+                  <div style="text-align:right;font-size:12px;">
+                    Med Card: <span style="color:var(--green);font-weight:700;">Valid</span><br>
+                    CDL: <span style="color:var(--green);font-weight:700;">Valid</span>
+                  </div>
+                </div>
+                <div class="mock-row" style="background:#fff5ee;">
+                  <div>
+                    <strong>Michael Chen</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">Safety Score: 82</span>
+                  </div>
+                  <div style="text-align:right;font-size:12px;">
+                    Med Card: <span style="color:#f07800;font-weight:700;">Expiring in 5 days</span><br>
+                    CDL: <span style="color:var(--green);font-weight:700;">Valid</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Expense -->
+    <section class="vas-section" id="expenses">
+      <div class="container">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="vas-section-tag">Financial Control</span>
+            <h2>Expense Management: Tolls, Fuel &amp; Parking</h2>
+            <p class="lead">Linehaul operations bleed cash through untracked expenses. FleetYes provides strict financial controls by centralizing your largest variable costs.</p>
+            <p class="lead">Say goodbye to lost receipts and manual spreadsheet reconciliation. Our expense module is built specifically for over-the-road realities.</p>
+            <ul class="vas-checklist">
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Fuel Integrations:</strong> Syncs with major fuel cards to track MPG by tractor and automate IFTA data collection.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Toll Tracking:</strong> Reconciles EZ-Pass and PrePass data against dispatched routes to catch billing errors.</span>
+              </li>
+              <li>
+                <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><strong>Digital Receipts:</strong> Drivers can instantly upload over-the-road parking and incidental receipts via their mobile app for quick approval.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="mock-ui">
+              <div class="mock-ui-bar">
+                <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+              </div>
+              <div class="mock-body">
+                <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Expense Reconciliation — Tractor #1042</p>
+                <div class="mock-row">
+                  <div>
+                    <strong>Pilot Flying J — Diesel</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">Date: Oct 24 | Driver: S. Jenkins</span>
+                  </div>
+                  <div style="font-weight:700;color:var(--charcoal);">-$485.20</div>
+                </div>
+                <div class="mock-row">
+                  <div>
+                    <strong>PA Turnpike Toll</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">Auto-matched to Route #VR-9921</span>
+                  </div>
+                  <div style="font-weight:700;color:var(--charcoal);">-$45.00</div>
+                </div>
+                <div class="mock-row">
+                  <div>
+                    <strong>Overnight Parking</strong><br>
+                    <span style="font-size:12px;color:var(--slate);">Receipt Uploaded ✓</span>
+                  </div>
+                  <div style="font-weight:700;color:var(--charcoal);">-$25.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="vas-cta-strip">
+      <div class="container">
+        <h2>Ready to optimize your freight operations?</h2>
+        <p>Join the top-performing Amazon Freight Partners who trust FleetYes to run their fleets.</p>
+        <a href="/#contact" class="btn-vas-cta">
+          Get in Touch
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </div><!-- /vas-page-wrap -->
+
+  <!-- Site Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>195-197 Wood Street<br>London E17 3NU<br>United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class="d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+    });
+  </script>
+
+</body>
+</html>

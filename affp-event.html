@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AFFP Event 2026 – FleetYes</title>
+  <meta name="description" content="FleetYes, an officially recognised Amazon AFP Value Added Service (VAS) Provider, will be at the AFFP Event 2026 in Rome, Italy. 26-28 May 2026." />
+
+  <!-- Favicons -->
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    /* ── Page-level overrides (green theme) ─── */
+    :root {
+      --green:      #496453;
+      --green-dk:   #344a3c;
+      --green-lt:   #5a7a65;
+      --green-pale: #eef3f0;
+    }
+
+    .affp-page-wrap {
+      padding-top: 72px;
+    }
+
+    /* Green header — default (not scrolled) */
+    .affp-page .header {
+      --background-color: #496453;
+      --heading-color: #ffffff;
+      --nav-color: #ffffff;
+    }
+
+    /* White header — on scroll (matches index-page scrolled behaviour) */
+    .affp-page.scrolled .header {
+      --background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .affp-page.scrolled .header .logo img {
+      filter: none;
+    }
+
+    .affp-page.scrolled .header .logo h1 {
+      color: var(--accent-color);
+    }
+
+    .affp-page.scrolled .navmenu a {
+      color: var(--accent-color);
+    }
+
+    /* ── Hero band ───────────────────────────── */
+    .affp-hero {
+      background: var(--green);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .affp-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .affp-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: -50px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .affp-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .affp-hero-eyebrow svg { color: rgba(255,255,255,0.7); }
+
+    .affp-hero h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 58px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .affp-hero h1 span {
+      display: block;
+      font-size: 32px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 6px;
+    }
+
+    .affp-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .affp-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .affp-chip svg { flex-shrink: 0; }
+
+    /* ── Content section ────────────────────── */
+    .affp-content {
+      background: #f5f6f8;
+      padding: 60px 0 72px;
+    }
+
+    /* ── Info cards ─────────────────────────── */
+    .affp-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .affp-card {
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      gap: 28px;
+      padding: 36px 40px;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+      border-left: 4px solid var(--green);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .affp-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+
+    .affp-card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .affp-card-icon svg { color: var(--green); }
+
+    .affp-card-body { flex: 1; }
+
+    .affp-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .affp-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 22px;
+      color: #2f3237;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .affp-card-desc {
+      font-size: 14px;
+      color: #5e636e;
+      line-height: 1.7;
+    }
+
+    .affp-card-note {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 13px;
+      font-style: italic;
+      color: #888;
+      border-left: 3px solid var(--green);
+      padding-left: 12px;
+      line-height: 1.55;
+    }
+
+    /* ── Contact strip ──────────────────────── */
+    .affp-contact-strip {
+      background: var(--green);
+      padding: 48px 0;
+    }
+
+    .affp-contact-strip h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .affp-contact-strip p {
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    .btn-affp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--green) !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: 4px;
+      text-decoration: none !important;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-affp:hover {
+      background: #f0f6f2;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      color: var(--green-dk) !important;
+    }
+
+    @media (max-width: 768px) {
+      .affp-hero h1 { font-size: 38px; }
+      .affp-hero h1 span { font-size: 22px; }
+      .affp-card { flex-direction: column; gap: 16px; padding: 28px 24px; }
+      .affp-page-wrap { padding-top: 80px; }
+      .affp-contact-strip .d-flex { flex-direction: column; gap: 20px !important; }
+    }
+  </style>
+</head>
+
+<body class="affp-page" style="--vasp-banner-height: 0px;">
+
+  <!-- ── Site Header ─────────────────────────────── -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#keyfeatures">Key Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+  <!-- /Site Header -->
+
+  <div class="affp-page-wrap">
+
+    <!-- ── Hero ──────────────────────────────────── -->
+    <section class="affp-hero">
+      <div class="container">
+        <div class="affp-hero-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/></svg>
+          Official Amazon AFP VAS Provider
+        </div>
+        <h1>
+          JOIN US
+          <span>at the AFFP Event 2026</span>
+        </h1>
+        <div class="affp-hero-meta">
+          <span class="affp-chip">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+            26 – 28 May 2026
+          </span>
+          <span class="affp-chip">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            Fiera di Roma, Rome, Italy
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Content ───────────────────────────────── -->
+    <section class="affp-content">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="affp-cards">
+
+              <!-- WHAT -->
+              <div class="affp-card">
+                <div class="affp-card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="affp-card-body">
+                  <p class="affp-card-label">What</p>
+                  <p class="affp-card-title">Amazon Freight Partner Forum (AFFP) 2026</p>
+                  <p class="affp-card-desc">The AFFP Event is Amazon's annual gathering for Freight Partner operators and their ecosystem of technology providers. FleetYes, an officially recognised Amazon AFP <strong>Value Added Service (VAS) Provider</strong>, will be attending to connect with AFP operators and share how our transport management platform supports fleet efficiency, driver compliance and last-mile delivery performance.</p>
+                  <span class="affp-card-note">Come and speak with the FleetYes team and find out how we can support your AFP operation.</span>
+                </div>
+              </div>
+
+              <!-- WHEN -->
+              <div class="affp-card">
+                <div class="affp-card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="affp-card-body">
+                  <p class="affp-card-label">When</p>
+                  <p class="affp-card-title">26 – 28 May 2026</p>
+                  <p class="affp-card-desc">An event bringing together Amazon Freight Partners and their technology providers. A great opportunity to connect, learn and explore solutions that support AFP operations.</p>
+                  <span class="affp-card-note">Get in touch ahead of the event to arrange a time to meet the FleetYes team.</span>
+                </div>
+              </div>
+
+              <!-- WHERE -->
+              <div class="affp-card">
+                <div class="affp-card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                  </svg>
+                </div>
+                <div class="affp-card-body">
+                  <p class="affp-card-label">Where</p>
+                  <p class="affp-card-title">Fiera di Roma, Rome, Italy</p>
+                  <p class="affp-card-desc">One of Europe's leading exhibition venues, located on the outskirts of Rome with excellent transport links to the city centre and Fiumicino Airport.</p>
+                  <span class="affp-card-note">We look forward to meeting you at the event.</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact strip ─────────────────────────── -->
+    <section class="affp-contact-strip">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-4">
+          <div>
+            <h2>Meet us at AFFP 2026</h2>
+            <p>Get in touch and we'll arrange a dedicated slot to walk you through FleetYes.</p>
+          </div>
+          <a href="/#contact" class="btn-affp">
+            Contact Us
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /affp-page-wrap -->
+
+  <!-- ── Site Footer ─────────────────────────────── -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>195–197 Wood Street<br>London E17 3NU<br>United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class="d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /Site Footer -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+    });
+  </script>
+
+</body>
+</html>
