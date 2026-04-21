@@ -258,16 +258,11 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
       loading.style.display = "block";
 
       try {
-        // Ensure reCAPTCHA script is loaded
-        if (typeof grecaptcha === "undefined") {
-          throw new Error("reCAPTCHA is not loaded");
+        // Get Cloudflare Turnstile token
+        const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value;
+        if (!turnstileToken) {
+          throw new Error("Please complete the security check.");
         }
-
-        // Execute reCAPTCHA
-        const recaptchaToken = await grecaptcha.execute(
-          "6LcnUbAqAAAAAM8QHeNPgdndBKrgYFvyT8XgmAFi",
-          { action: "submit" }
-        );
 
         // Gather form data
         const formData = new FormData(form);
@@ -276,7 +271,7 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
           lastName: formData.get("last-name"),
           email: formData.get("email"),
           message: formData.get("message"),
-          // recaptchaToken, 
+          turnstileToken,
         };
 
         // Send data via POST request

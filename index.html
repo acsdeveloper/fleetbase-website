@@ -29,7 +29,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet" />
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcnUbAqAAAAAM8QHeNPgdndBKrgYFvyT8XgmAFi"></script>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 
@@ -500,6 +501,10 @@
                   <label for="message-field" class="pb-2">Message</label>
                   <textarea class="form-control" name="message" rows="10" id="message-field" required=""
                     aria-required="true" aria-label="Message"></textarea>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAADAXF6RcnPhp25XQ" data-theme="light"></div>
                 </div>
 
                 <div class="col-md-12 text-center">
