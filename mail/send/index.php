@@ -1,4 +1,15 @@
 <?php
+header('Content-Type: application/json');
+
+// Catch any fatal errors and return JSON instead of HTML
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        if (!headers_sent()) http_response_code(500);
+        echo json_encode(['success' => false, 'message' => 'Server error: ' . $error['message']]);
+    }
+});
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -16,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Check if the content type is JSON
-if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
+if (strpos($_SERVER['CONTENT_TYPE'] ?? '', 'application/json') === false) {
     http_response_code(415);
     echo json_encode(['error' => 'Content type must be application/json']);
     exit;
@@ -25,8 +36,14 @@ if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
 // Get the JSON input
 $input = json_decode(file_get_contents('php://input'), true);
 
+if (!$input) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid JSON input']);
+    exit;
+}
+
 // Check if the token is present and valid
-$validToken = $_ENV['SECRET_TOKEN'];
+$validToken = $_ENV['SECRET_TOKEN'] ?? '';
 $headers = getallheaders();
 if (!isset($headers['Token']) || $headers['Token'] !== $validToken) {
     http_response_code(401);
@@ -56,15 +73,15 @@ try {
     $mail->isHTML(true);                                        // Set email format to HTML
     $mail->Subject = 'New Contact Form Submission';
     $mail->Body    = 'You have received a new message from your website contact form.<br><br>' .
-                     '<b>First Name:</b> ' . htmlspecialchars($input['firstName']) . '<br>' .
-                     '<b>Last Name:</b> ' . htmlspecialchars($input['lastName']) . '<br>' .
-                     '<b>Email:</b> ' . htmlspecialchars($input['email']) . '<br>' .
-                     '<b>Message:</b> ' . nl2br(htmlspecialchars($input['message'])) . '<br>';
+                     '<b>First Name:</b> ' . htmlspecialchars($input['firstName'] ?? '') . '<br>' .
+                     '<b>Last Name:</b> '  . htmlspecialchars($input['lastName']  ?? '') . '<br>' .
+                     '<b>Email:</b> '      . htmlspecialchars($input['email']     ?? '') . '<br>' .
+                     '<b>Message:</b> '    . nl2br(htmlspecialchars($input['message'] ?? '')) . '<br>';
     $mail->AltBody = 'You have received a new message from your website contact form.' . "\n\n" .
-                     'First Name: ' . htmlspecialchars($input['first-name']) . "\n" .
-                     'Last Name: ' . htmlspecialchars($input['last-name']) . "\n" .
-                     'Email: ' . htmlspecialchars($input['email']) . "\n" .
-                     'Message: ' . htmlspecialchars($input['message']);
+                     'First Name: ' . htmlspecialchars($input['firstName'] ?? '') . "\n" .
+                     'Last Name: '  . htmlspecialchars($input['lastName']  ?? '') . "\n" .
+                     'Email: '      . htmlspecialchars($input['email']     ?? '') . "\n" .
+                     'Message: '    . htmlspecialchars($input['message']   ?? '');
 
     $mail->send();
 
