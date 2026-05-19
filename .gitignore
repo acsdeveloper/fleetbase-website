@@ -29,3 +29,4 @@ generate-feature-pages.py
 .env
 new-index.html
 .claude/settings.local.json
+.htaccess
