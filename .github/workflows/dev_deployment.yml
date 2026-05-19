@@ -1,0 +1,27 @@
+name: Dev Deployment via SSH
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'dev'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.branch == 'dev'
+    environment:
+      name: dev
+    steps:
+      - name: Execute SSH Commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            cd /var/www/html/fleetbase-website
+            git pull origin ${{ github.event.inputs.branch }}
