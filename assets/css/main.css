@@ -854,6 +854,10 @@ h6 {
     z-index: 9999;
   }
 
+  body.scrolled i.mobile-nav-toggle {
+    color: #000;
+  }
+
   .mobile-nav-active .navmenu {
     position: fixed;
     overflow: hidden;
