@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Proof of Delivery - FleetYes</title>
-  <meta name="description" content="Collect photo evidence of every completed delivery with automatic location verification. Our intelligent metadata extraction ensures compliance and reduces disputes." />
-  <meta name="keywords" content="proof of delivery" />
+  <title>WebSocket & SocketCluster Integration - FleetYes</title>
+  <meta name="description" content="WebSocket connection via SocketCluster enables true real-time event streaming, ensuring drivers and operations teams are always in perfect synchronisation." />
+  <meta name="keywords" content="websocket & socketcluster integration" />
   <!-- Base URL for multi-environment support -->
 
 
@@ -518,7 +518,7 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="features">Features</a></li>
+          <li><a href="feature">Features</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -530,13 +530,13 @@
   <main class="main">
     <!-- Hero Section -->
     <section class="feature-page-hero section" style="padding: 180px 0 80px 0;">
-      <img src="assets/img/features/proof-of-delivery.webp" alt="" />
+      <img src="assets/img/features/websocket-socketcluster.webp" alt="" />
       <div class="container" data-aos="fade-up">
         <div class="breadcrumb-nav mb-4">
-          <a href="features">Features</a> <span class="mx-2">/</span> <span style="color: white;">Proof of Delivery</span>
+          <a href="feature">Features</a> <span class="mx-2">/</span> <span style="color: white;">WebSocket & SocketCluster Integration</span>
         </div>
-        <h1>Proof of Delivery</h1>
-        <p class="subtitle">Collect photo evidence of every completed delivery with automatic location verification. Our intelligent metadata extraction ensures compliance and reduces disputes.</p>
+        <h1>WebSocket & SocketCluster Integration</h1>
+        <p class="subtitle">WebSocket connection via SocketCluster enables true real-time event streaming, ensuring drivers and operations teams are always in perfect synchronisation.</p>
         <a href="#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
           <span>Book a Demo</span>
           <i class="bi bi-arrow-right"></i>
@@ -551,36 +551,36 @@
         <div class="benefits-grid">
           <!-- DYNAMIC: Repeat for each benefit -->
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="50">
-            <h4>In-App Photo Capture</h4>
-            <p>Photograph deliveries directly from the app without switching applications</p>
+            <h4>True Real-Time Sync</h4>
+            <p>Changes on the backend instantly appear on drivers' phones-no refresh needed</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-            <h4>Automatic Location Verification</h4>
-            <p>EXIF data automatically captures GPS coordinates, timestamp, and camera orientation for proof of location</p>
+            <h4>Bidirectional Communication</h4>
+            <p>Orders can be streamed to drivers and driver responses sent back simultaneously</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="150">
-            <h4>Instant Upload</h4>
-            <p>Photos optimise and upload efficiently, even on slower connections</p>
+            <h4>Low Latency</h4>
+            <p>WebSocket eliminates HTTP request/response overhead for <100ms latency updates</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-            <h4>Dispute Resolution</h4>
-            <p>Timestamped, geotagged photos eliminate ambiguity about delivery location and timing</p>
+            <h4>Efficient</h4>
+            <p>Single persistent connection uses less battery and data than repeated HTTP polling</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
-            <h4>Compliance Ready</h4>
-            <p>Complete proof-of-delivery documentation supports audits, insurance claims, and customer inquiries</p>
+            <h4>Reliable</h4>
+            <p>Automatic reconnection handles network interruptions seamlessly</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-            <h4>Customer Signatures</h4>
-            <p>Optional signature capture for additional verification and customer acknowledgement</p>
+            <h4>Scalable</h4>
+            <p>Handles thousands of concurrent driver connections without performance degradation</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="350">
-            <h4>Photo Gallery</h4>
-            <p>Organised archive of all delivery photos searchable by date, location, and order</p>
+            <h4>Smart Queuing</h4>
+            <p>Messages are queued during disconnection and delivered upon reconnection</p>
           </div>
           <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
-            <h4>Multiple Photo Support</h4>
-            <p>Capture multiple angles and details with batch processing and organisation</p>
+            <h4>Broadcast Support</h4>
+            <p>Efficiently broadcast messages to multiple subscribers simultaneously</p>
           </div>
         </div>
       </div>
@@ -594,23 +594,23 @@
           <!-- DYNAMIC: Repeat for each step -->
           <div class="step-card" data-aos="fade-up" data-aos-delay="50">
             <div class="step-number">1</div>
-            <h4>Complete the Delivery</h4>
-            <p>When you've delivered the package or completed the service, open the order and select the proof-of-delivery option.</p>
+            <h4>Establish Connection</h4>
+            <p>When a driver logs in, the app establishes a WebSocket connection to the SocketCluster server.</p>
           </div>
           <div class="step-card" data-aos="fade-up" data-aos-delay="100">
             <div class="step-number">2</div>
-            <h4>Capture Photo Evidence</h4>
-            <p>Use your device camera to photograph the delivery location, recipient, or package placement. The app automatically captures location metadata (GPS, timestamp, orientation).</p>
+            <h4>Subscribe to Events</h4>
+            <p>The app subscribes to event channels relevant to the driver (their orders, their messages, their team alerts).</p>
           </div>
           <div class="step-card" data-aos="fade-up" data-aos-delay="150">
             <div class="step-number">3</div>
-            <h4>Review & Confirm</h4>
-            <p>Preview the photo to ensure it clearly shows the delivery. Add optional notes or customer signature if required.</p>
+            <h4>Receive Real-Time Updates</h4>
+            <p>As orders are assigned, messages sent, or statuses change, events stream to the driver instantly.</p>
           </div>
           <div class="step-card" data-aos="fade-up" data-aos-delay="200">
             <div class="step-number">4</div>
-            <h4>Upload & Archive</h4>
-            <p>The photo automatically uploads to secure cloud storage with full metadata intact. Your operations team immediately receives confirmation of completion.</p>
+            <h4>Publish Updates</h4>
+            <p>When the driver completes actions, those updates are published back through the same connection for operations to see immediately.</p>
           </div>
         </div>
       </div>
@@ -625,56 +625,56 @@
           <div class="capability-item" data-aos="fade-up" data-aos-delay="50">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>In-app camera with both back and front-facing options</h5>
+              <h5>WebSocket protocol with automatic fallback support</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="100">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Automatic EXIF metadata extraction (GPS, timestamp, altitude)</h5>
+              <h5>Event channel subscription and management</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="150">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Image optimisation (up to 1920×1920px) for efficient transmission</h5>
+              <h5>Real-time bidirectional messaging</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="200">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Gallery import option for alternative photos</h5>
+              <h5>Automatic reconnection on connection loss</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="250">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Multiple photo support per delivery</h5>
+              <h5>Message acknowledgement and reliability</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="300">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Optional customer signature capture</h5>
+              <h5>Broadcast to multiple subscribers</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="350">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Photo archive with searchable metadata</h5>
+              <h5>Private channels for sensitive communications</h5>
               <p></p>
             </div>
           </div>
           <div class="capability-item" data-aos="fade-up" data-aos-delay="400">
             <i class="bi bi-check-circle-fill"></i>
             <div>
-              <h5>Instant upload confirmation</h5>
+              <h5>Rate limiting and backpressure handling</h5>
               <p></p>
             </div>
           </div>
@@ -684,7 +684,7 @@
 
     <!-- Feature Highlight Section -->
     <section class="feature-highlight-section">
-      <img src="assets/img/features-mobile.webp" alt="Proof of Delivery" class="feature-highlight-image">
+      <img src="assets/img/features-mobile.webp" alt="WebSocket & SocketCluster Integration" class="feature-highlight-image">
       <div class="feature-highlight-wrapper">
         <div class="container">
           <div class="feature-highlight" data-aos="fade-up">
@@ -692,8 +692,8 @@
               <div class="feature-highlight-icon">
                 <i class="las la-star"></i>
               </div>
-              <h3>Master Proof of Delivery</h3>
-              <p>Collect photo evidence of every completed delivery with automatic location verification. Our intelligent metadata extraction ensures compliance and reduces disputes.</p>
+              <h3>Master WebSocket & SocketCluster Integration</h3>
+              <p>WebSocket connection via SocketCluster enables true real-time event streaming, ensuring drivers and operations teams are always in perfect synchronisation.</p>
             </div>
           </div>
         </div>
@@ -707,36 +707,36 @@
         <div class="use-cases-grid">
           <!-- DYNAMIC: Repeat for each use case -->
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="50">
-            <h5>High-Value Deliveries</h5>
-            <p>Luxury goods, electronics, and high-risk items require irrefutable proof to prevent theft claims</p>
+            <h5>Order Streaming</h5>
+            <p>New orders stream to drivers in real-time as they're assigned</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="100">
-            <h5>Fragile Item Delivery</h5>
-            <p>Document the condition of items upon delivery, with photographic evidence of proper handling</p>
+            <h5>Live Chat</h5>
+            <p>Team messages appear in real-time, creating a truly synchronous communication experience</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="150">
-            <h5>Cash-on-Delivery Orders</h5>
-            <p>Photos prove delivery completion for payment collection scenarios, protecting driver and company</p>
+            <h5>Status Updates</h5>
+            <p>When one driver updates an order status, that change appears instantly to their supervisor</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="200">
-            <h5>Signature-Required Shipments</h5>
-            <p>Combine photo proof with signature capture for complete delivery authentication</p>
+            <h5>Location Tracking</h5>
+            <p>Drivers' real-time locations stream to operations dashboards showing live fleet position</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="250">
-            <h5>Customer Service</h5>
-            <p>Proof photos resolve delivery disputes quickly by showing exactly where items were left</p>
+            <h5>Urgent Alerts</h5>
+            <p>Critical alerts broadcast to relevant drivers and supervisors instantly</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="300">
-            <h5>Insurance Claims</h5>
-            <p>Time-stamped, geotagged photos provide evidence needed to resolve damage claims</p>
+            <h5>Notification Hub</h5>
+            <p>Real-time notifications complement push notifications for multiple delivery channels</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="350">
-            <h5>Residential Delivery</h5>
-            <p>Photos document delivery to homes where recipients may not be present</p>
+            <h5>Live Collaboration</h5>
+            <p>Teams collaborate in real-time on route planning and order assignment</p>
           </div>
           <div class="use-case-card" data-aos="fade-up" data-aos-delay="400">
-            <h5>Commercial Delivery</h5>
-            <p>Businesses require documented proof of delivery for accounting and reconciliation purposes</p>
+            <h5>Performance Metrics</h5>
+            <p>Earnings, metrics, and KPIs update in real-time as work is completed</p>
           </div>
         </div>
       </div>
@@ -745,11 +745,11 @@
     <!-- Why Choose This Feature Section -->
     <section class="section section-wrapper">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Why Choose Proof of Delivery</h2>
+        <h2 class="section-title" data-aos="fade-up">Why Choose WebSocket & SocketCluster Integration</h2>
         <div class="why-choose-section" data-aos="fade-up">
-          <p>Proof of delivery is your protection. A photo with accurate GPS data and timestamp is nearly impossible to dispute. It protects you from false claims about non-delivery, it reassures customers that their items arrived safely, and it gives your operations team the evidence needed to resolve any questions.</p>
-          <p>Our metadata extraction happens automatically-you don't need to do anything special. Every photo is automatically tagged with the exact location and time it was taken. No manual data entry, no forgotten details.</p>
-          <p></p>
+          <p>HTTP polling is the old way of keeping apps updated-request, wait for response, repeat. It's expensive in terms of battery, data, and server load.</p>
+          <p>WebSocket is the modern approach-open a connection once, keep it open, stream updates as they happen. One connection, infinite updates. Dramatically more efficient and provides true real-time capability.</p>
+          <p>SocketCluster specifically is built for scale. It handles thousands of concurrent connections without breaking a sweat, broadcasts events to multiple subscribers efficiently, and includes sophisticated reconnection logic to handle the reality of mobile networks with intermittent connectivity.</p>
         </div>
       </div>
     </section>
@@ -762,43 +762,43 @@
           <!-- DYNAMIC: Repeat for each integration -->
           <div class="integration-item" data-aos="fade-up" data-aos-delay="50">
             <i class="las la-server"></i>
-            <h5>Vision Camera (iOS)</h5>
-            <p style="font-size: 13px;">Native camera integration with permission handling</p>
+            <h5>SocketCluster Server</h5>
+            <p style="font-size: 13px;">WebSocket server framework</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="100">
             <i class="las la-map"></i>
-            <h5>Image Picker (Android)</h5>
-            <p style="font-size: 13px;">Gallery and camera access on Android devices</p>
+            <h5>Event Channels</h5>
+            <p style="font-size: 13px;">Pub/Sub event distribution system</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="150">
             <i class="las la-eye"></i>
-            <h5>ML Kit Text Recognition</h5>
-            <p style="font-size: 13px;">Optional receipt/document capture and analysis</p>
+            <h5>Automatic Reconnection</h5>
+            <p style="font-size: 13px;">Handles network interruptions gracefully</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="200">
             <i class="las la-bell"></i>
-            <h5>EXIF Data Parser</h5>
-            <p style="font-size: 13px;">Automatic metadata extraction and validation</p>
+            <h5>Fallback Support</h5>
+            <p style="font-size: 13px;">HTTP polling fallback if WebSocket unavailable</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="250">
             <i class="las la-wifi"></i>
-            <h5>Cloud Storage</h5>
-            <p style="font-size: 13px;">Secure photo upload and archival services</p>
+            <h5>Message Queuing</h5>
+            <p style="font-size: 13px;">Offline message queuing until connection restored</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="300">
             <i class="las la-images"></i>
-            <h5>Image Compression</h5>
-            <p style="font-size: 13px;">Intelligent optimisation for bandwidth efficiency</p>
+            <h5>Compression</h5>
+            <p style="font-size: 13px;">Optional message compression for reduced bandwidth</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="350">
             <i class="las la-plug"></i>
-            <h5>Signature Capture</h5>
-            <p style="font-size: 13px;">Digital signature pad integration</p>
+            <h5>Rate Limiting</h5>
+            <p style="font-size: 13px;">Backpressure handling for high-volume messaging</p>
           </div>
           <div class="integration-item" data-aos="fade-up" data-aos-delay="400">
             <i class="las la-cog"></i>
-            <h5>Photo Database</h5>
-            <p style="font-size: 13px;">Backend storage and retrieval system</p>
+            <h5>Monitoring</h5>
+            <p style="font-size: 13px;">Connection health and performance metrics</p>
           </div>
         </div>
       </div>
@@ -808,7 +808,7 @@
     <section class="cta-section-bottom" data-aos="fade-up">
       <div class="container">
         <h2>Ready to transform your operations?</h2>
-        <p>Experience Proof of Delivery and discover how it can streamline your proof of delivery workflow.</p>
+        <p>Experience WebSocket & SocketCluster Integration and discover how it can streamline your websocket & socketcluster integration workflow.</p>
         <a href="#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
           <span>Book a Demo</span>
           <i class="bi bi-arrow-right"></i>
