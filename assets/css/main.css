@@ -1159,6 +1159,10 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+.breadcrumb-nav span.mx-2 {
+  color: #fff;
+}
+
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
