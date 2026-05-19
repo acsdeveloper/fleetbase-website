@@ -117,12 +117,11 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#keyfeatures">Key Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -227,6 +226,134 @@
     </section>
     <!-- /About Section -->
 
+    <!-- AI Features Slider Section -->
+    <section id="ai-features" class="ai-features-slider section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>AI-Powered Capabilities</h2>
+          <p>Harness the power of intelligent automation to transform your logistics operations</p>
+        </div>
+      </div>
+
+      <!-- Swiper Slider (Outside container for full navigation visibility) -->
+      <div class="swiper init-swiper ai-features-swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="ai-slide">
+              <div class="ai-slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                  <circle cx="12" cy="7" r="1.5"/>
+                  <path d="M12 10v6M9 13h6"/>
+                </svg>
+              </div>
+              <h3>Automated AI-Driven Allocation</h3>
+              <p>Intelligently optimise resource allocation with machine learning algorithms</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="ai-slide">
+              <div class="ai-slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <circle cx="9" cy="10" r="1"/>
+                  <circle cx="12" cy="10" r="1"/>
+                  <circle cx="15" cy="10" r="1"/>
+                </svg>
+              </div>
+              <h3>Human-Like AI Messaging</h3>
+              <p>Natural language communication that feels genuine and context-aware</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="ai-slide">
+              <div class="ai-slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 7h16M4 12h16M4 17h16"/>
+                  <rect x="2" y="2" width="20" height="20" rx="2"/>
+                </svg>
+              </div>
+              <h3>AI-Powered Receipt Data Capture</h3>
+              <p>Automatically extract and categorise financial data from receipts in seconds</p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <div class="ai-slide">
+              <div class="ai-slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                  <polyline points="13 2 13 9 20 9"/>
+                  <path d="M9 15l2 2 4-4"/>
+                </svg>
+              </div>
+              <h3>Agentic Order Copilot System</h3>
+              <p>Autonomous agent that streamlines order processing and decision-making</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <button class="swiper-button-prev ai-slider-btn ai-slider-btn-prev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="swiper-button-next ai-slider-btn ai-slider-btn-next" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination ai-slider-pagination"></div>
+
+        <!-- Swiper Configuration -->
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000,
+              "disableOnInteraction": false
+            },
+            "slidesPerView": 3,
+            "spaceBetween": 30,
+            "navigation": {
+              "nextEl": ".ai-slider-btn-next",
+              "prevEl": ".ai-slider-btn-prev"
+            },
+            "pagination": {
+              "el": ".ai-slider-pagination",
+              "type": "bullets",
+              "clickable": true
+            },
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 1,
+                "spaceBetween": 20
+              },
+              "640": {
+                "slidesPerView": 2,
+                "spaceBetween": 20
+              },
+              "1024": {
+                "slidesPerView": 3,
+                "spaceBetween": 30
+              }
+            }
+          }
+        </script>
+      </div>
+    </section>
+    <!-- /AI Features Slider Section -->
+
     <!-- Key Features Section -->
     <section id="keyfeatures" class="services section light-background">
 
@@ -238,134 +365,102 @@
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/fleetbase_transport-3.jpeg');">
+          <a href="features/driver-operations" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/driver-operations.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-desktop feature-icon"></i>
-                <h3>Operations Console</h3>
-                <p>Full console to manage all of your packages and custom systems.</p>
+                <i class="las la-tasks feature-icon"></i>
+                <h3>Driver Operations</h3>
+                <p>Complete order and delivery management from your mobile device. Accept jobs, navigate routes, and complete deliveries efficiently.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/fleetbase_operation_Section-2.jpg');">
+          </a>
+          <a href="features/real-time-order-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/real-time-order-management.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
                 <i class="las la-shipping-fast feature-icon"></i>
-                <h3>TMS</h3>
-                <p>End to end transport management system for logistics operations management and overview.</p>
+                <h3>Real-Time Order Management</h3>
+                <p>Instantly receive new orders, accept or reject jobs, and track order status throughout the delivery lifecycle with offline queue support.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/feature-1.jpg');">
+          </a>
+          <a href="features/gps-navigation-route-tracking" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/gps-navigation-route-tracking.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-user-tie feature-icon"></i>
-                <h3>Driver App</h3>
-                <p>Open source driver app integrated into your TMS. Drivers can manage jobs, tracking, and electronic POD.</p>
+                <i class="las la-map-marked feature-icon"></i>
+                <h3>GPS Navigation & Route Tracking</h3>
+                <p>Built-in maps with real-time GPS tracking, route visualisation, and turn-by-turn navigation integrated with Google Maps, Apple Maps, and Waze.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/feature-2.jpg');">
+          </a>
+          <a href="features/proof-of-delivery" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/proof-of-delivery.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-code feature-icon"></i>
-                <h3>Developer API</h3>
-                <p>Easy to use developer console which provides API usage metrics, and never miss a beat with event and request logs.</p>
+                <i class="las la-camera feature-icon"></i>
+                <h3>Proof of Delivery</h3>
+                <p>Capture photo evidence of completed deliveries with automatic EXIF metadata extraction for location confirmation and image optimisation.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/fleetbase_operation_Section.jpeg');">
+          </a>
+          <a href="features/real-time-chat-communication" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/real-time-chat-communication.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-truck feature-icon"></i>
-                <h3>Fleet Management</h3>
-                <p>Manage all of your assets in one centralised location. Quickly assign assets to custom zones, service areas, and orders.</p>
+                <i class="las la-comments feature-icon"></i>
+                <h3>Real-Time Chat & Communication</h3>
+                <p>Team messaging system with channel organisation enabling drivers to communicate instantly with operations teams with persistent message history.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/integrations.jpg');">
+          </a>
+          <a href="features/expense-receipt-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/expense-receipt-management.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-plug feature-icon"></i>
-                <h3>Integrations</h3>
-                <p>Extensive list of integrations to get you started quickly. All the way from Lala Move to Shopify. Easy to integrate API.</p>
+                <i class="las la-receipt feature-icon"></i>
+                <h3>Expense & Receipt Management</h3>
+                <p>Automated capture and categorisation of expense receipts with AI-powered data extraction and real-time expense tracking.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/feature-3.jpg');">
+          </a>
+          <a href="features/issue-reporting" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/issue-reporting.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-gas-pump feature-icon"></i>
-                <h3>Fuel Tracking</h3>
-                <p>Monitor fuel consumption and track fuel expenses effectively.</p>
+                <i class="las la-exclamation-triangle feature-icon"></i>
+                <h3>Issue Reporting</h3>
+                <p>Report delivery issues, vehicle problems, and operational blockers with attached photo evidence and real-time notifications to operations team.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/parking.jpg');">
+          </a>
+          <a href="features/shift-leave-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+            <div class="feature-card" style="background-image: url('assets/img/features/shift-leave-management.webp');">
               <div class="overlay"></div>
               <div class="feature-card-content">
-                <i class="las la-parking feature-icon"></i>
-                <h3>Parking Monitoring</h3>
-                <p>Keep track of parking spaces and monitor parking expenses in real-time.</p>
+                <i class="las la-calendar feature-icon"></i>
+                <h3>Shift & Leave Management</h3>
+                <p>Manage driver schedules, shift assignments, and leave requests with automated scheduling and availability tracking.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/toll.jpg');">
-              <div class="overlay"></div>
-              <div class="feature-card-content">
-                <i class="las la-road feature-icon"></i>
-                <h3>Toll Expense Record</h3>
-                <p>Record and manage toll expenses efficiently.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/maintenance.jpg');">
-              <div class="overlay"></div>
-              <div class="feature-card-content">
-                <i class="las la-exclamation-circle feature-icon"></i>
-                <h3>Vehicle Maintenance</h3>
-                <p>Track and resolve vehicle issues for seamless operations.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/fleetbase_transport-2.jpeg');">
-              <div class="overlay"></div>
-              <div class="feature-card-content">
-                <i class="las la-cogs feature-icon"></i>
-                <h3>Customisable</h3>
-                <p>Adapt this open source solution to fit your specific business needs.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="feature-card" style="background-image: url('assets/img/feature-4.jpg');">
-              <div class="overlay"></div>
-              <div class="feature-card-content">
-                <i class="las la-language feature-icon"></i>
-                <h3>Multi-lingual</h3>
-                <p>Support for multiple languages to cater to a global audience.</p>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
+      </div>
+
+      <!-- View All Features Button -->
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <a href="features" class="read-more" style="margin-top: 40px;">
+          <span>View All Features</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
 
     </section>
     <!-- /Key Features Section -->
 
 
-    <section id="pricing" class="pricing-section d-flex align-items-center flex-column">
+    <!-- <section id="pricing" class="pricing-section d-flex align-items-center flex-column">
       <h1 class="fw-bold text-white text-center"  data-aos="fade-up" data-aos-delay="100">Competitive prices to increase driver adoption</h1>
       <div class="row d-flex justify-content-center content-container">
       <div class="d-flex justify-content-center align-items-center flex-column col-md-6 content-container mb-lg-5">
@@ -382,7 +477,7 @@
         </div>
       </div>
     </div>
-    </section>
+    </section> -->
 
     <section id="testimonials" class="testimonials section">
       <!-- Section Title -->

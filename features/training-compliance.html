@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Training & Compliance - FleetYes</title>
+  <meta name="description" content="Access mandatory and elective training modules, track completion progress, and perform pre-trip vehicle checks-all in one platform." />
+  <meta name="keywords" content="training & compliance" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/fleetyes.svg" rel="icon" />
+  <link href="../assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <style>
+    /* Feature Page Specific Styles */
+    .feature-page-hero {
+      background: linear-gradient(135deg, rgba(47, 50, 55, 0.95) 0%, rgba(45, 63, 53, 0.95) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-page-hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .feature-page-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-page-hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .feature-page-hero .subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .section-wrapper {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .benefit-card {
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .benefit-card p {
+      font-size: 15px;
+      color: var(--default-color);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .step-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 auto 20px;
+    }
+
+    .step-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--default-color);
+      line-height: 1.6;
+    }
+
+    .capabilities-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .capability-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+    }
+
+    .capability-item i {
+      color: var(--accent-color);
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .capability-item h5 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .capability-item p {
+      font-size: 14px;
+      color: var(--default-color);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .use-case-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .use-case-card h5 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .use-case-card p {
+      font-size: 14px;
+      color: var(--default-color);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .feature-highlight-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .feature-highlight-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .feature-highlight-wrapper {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 60px 50px;
+    }
+
+    .feature-highlight {
+      width: 100%;
+      padding: 0;
+    }
+
+    .feature-highlight-content {
+      text-align: left;
+    }
+
+    .feature-highlight-icon {
+      font-size: 64px;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-highlight h3 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .feature-highlight p {
+      font-size: 16px;
+      color: var(--default-color);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .feature-highlight-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .feature-highlight-image {
+        min-height: 300px;
+      }
+
+      .feature-highlight {
+        padding: 40px 20px;
+      }
+
+      .feature-highlight h3 {
+        font-size: 22px;
+      }
+    }
+
+    .integration-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .integration-item {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #f0f0f0;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .integration-item:hover {
+      border-color: var(--accent-color);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .integration-item i {
+      font-size: 32px;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+    }
+
+    .integration-item h5 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin: 0 0 10px 0;
+    }
+
+    .why-choose-section {
+      background: linear-gradient(135deg, rgba(47, 50, 55, 0.05) 0%, rgba(45, 63, 53, 0.05) 100%);
+      padding: 60px 40px;
+      border-radius: 12px;
+      margin: 0;
+    }
+
+    .why-choose-section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+    }
+
+    .why-choose-section p {
+      font-size: 16px;
+      color: var(--default-color);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .cta-section-bottom {
+      padding: 80px 30px;
+    }
+
+    .cta-section-bottom .container {
+      background: linear-gradient(135deg, #496453 0%, #2d3f35 100%);
+      color: white;
+      padding: 60px 50px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .cta-section-bottom h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .cta-section-bottom p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section-bottom .read-more {
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+      padding: 12px 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-section-bottom .read-more:hover {
+      background-color: #ffffff;
+      color: #496453 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .breadcrumb-nav {
+      margin-bottom: 30px;
+    }
+
+    .breadcrumb-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .breadcrumb-nav a:hover {
+      color: rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .feature-page-hero h1 {
+        font-size: 32px;
+      }
+
+      .feature-page-hero .subtitle {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .benefits-grid,
+      .steps-container,
+      .use-cases-grid,
+      .integration-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-wrapper {
+        padding: 50px 0;
+      }
+
+      .cta-section-bottom h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</head>
+
+<body class="features-page">
+
+  <!-- VASP Amazon AFP Banner -->
+  <div id="vasp-banner" class="vasp-banner">
+    <div class="vasp-banner-inner">
+      <div class="vasp-carousel" id="vasp-carousel" aria-live="polite">
+        <div class="vasp-track" id="vasp-track">
+          <!-- Slide 1: VAS Provider -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                </svg>
+                <span>Official VAS Provider</span>
+              </div>
+              <span class="vasp-headline">Officially recognised as an <span class="vasp-amazon">Amazon AFP</span> <strong>Value Added Service (VAS) Provider</strong></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/vas-provider" class="vasp-learn-more" aria-label="Learn more about FleetYes as an Amazon AFP VAS Provider">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2: AFF Event -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>AFF Event 2026</span>
+              </div>
+              <span class="vasp-headline">Join us at the <strong>AFF Event 2026</strong> <span class="vasp-event-date">Rome · May 26–28</span></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/aff-event" class="vasp-learn-more" aria-label="Learn more about the AFF Event 2026">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close -->
+      <button class="vasp-close" id="vasp-close-btn" aria-label="Close banner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="../" class="logo d-flex align-items-center me-auto">
+        <img src="../assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="feature-page-hero section" style="padding: 180px 0 80px 0;">
+      <img src="../assets/img/features/training-compliance.webp" alt="" />
+      <div class="container" data-aos="fade-up">
+        <div class="breadcrumb-nav mb-4">
+          <a href="/features">Features</a> <span class="mx-2">/</span> <span style="color: white;">Training & Compliance</span>
+        </div>
+        <h1>Training & Compliance</h1>
+        <p class="subtitle">Access mandatory and elective training modules, track completion progress, and perform pre-trip vehicle checks-all in one platform.</p>
+        <a href="/#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
+          <span>Book a Demo</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Key Benefits</h2>
+        <div class="benefits-grid">
+          <!-- DYNAMIC: Repeat for each benefit -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Mandatory Training Access</h4>
+            <p>Complete required training modules directly in the app at your own pace</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Progress Tracking</h4>
+            <p>See which courses you've completed and which still need attention with clear status indicators</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Vehicle Safety Checklists</h4>
+            <p>Perform pre-trip walk-around checks to ensure your vehicle is safe before each shift</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Compliance Documentation</h4>
+            <p>All training completion and vehicle inspections are automatically documented for audits</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Certification Management</h4>
+            <p>Track certification expiry dates and receive reminders when renewals are due</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Accessibility</h4>
+            <p>Training modules are mobile-friendly, so you can learn whenever and wherever is convenient</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="350">
+            <h4>Interactive Learning</h4>
+            <p>Videos, quizzes, and interactive content keep training engaging and effective</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+            <h4>Offline Access</h4>
+            <p>Download training modules to study offline in areas without internet connectivity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+        <div class="steps-container">
+          <!-- DYNAMIC: Repeat for each step -->
+          <div class="step-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-number">1</div>
+            <h4>View Your Training</h4>
+            <p>Open the training section to see mandatory courses, optional professional development, and upcoming certification renewals.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">2</div>
+            <h4>Complete Courses</h4>
+            <p>Select a course and start learning. Progress is saved automatically, so you can stop and resume anytime. Modules include videos, documents, and quizzes.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="step-number">3</div>
+            <h4>Walk-Around Checks</h4>
+            <p>Before each shift, open the vehicle inspection checklist. Walk around your vehicle checking tires, lights, mirrors, and brakes. Confirm each item, and submit the completed check.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">4</div>
+            <h4>Track Progress</h4>
+            <p>Monitor your training completion percentage and certification status. Receive alerts when certificates are about to expire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Capabilities Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Core Capabilities</h2>
+        <div class="capabilities-list">
+          <!-- DYNAMIC: Repeat for each capability -->
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="50">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Accessible training library with multiple courses</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Video and document-based learning modules</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="150">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Progress tracking with automatic saving</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Quiz and knowledge assessment</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="250">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Vehicle walk-around inspection checklists</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Digital signature capture for completed checks</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="350">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Certification expiry tracking and reminders</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Completion certificates with issue and expiry dates</h5>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlight Section -->
+    <section class="feature-highlight-section">
+      <img src="../assets/img/features-mobile.webp" alt="Training & Compliance" class="feature-highlight-image">
+      <div class="feature-highlight-wrapper">
+        <div class="container">
+          <div class="feature-highlight" data-aos="fade-up">
+            <div class="feature-highlight-content">
+              <div class="feature-highlight-icon">
+                <i class="las la-star"></i>
+              </div>
+              <h3>Master Training & Compliance</h3>
+              <p>Access mandatory and elective training modules, track completion progress, and perform pre-trip vehicle checks-all in one platform.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Real-World Use Cases</h2>
+        <div class="use-cases-grid">
+          <!-- DYNAMIC: Repeat for each use case -->
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="50">
+            <h5>New Driver Onboarding</h5>
+            <p>New hires complete safety and operations training in their first week</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="100">
+            <h5>Regulatory Compliance</h5>
+            <p>Drivers in regulated industries maintain current certifications with automatic reminders</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="150">
+            <h5>Safety Culture</h5>
+            <p>Companies maintain high safety standards by requiring pre-trip vehicle inspections</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="200">
+            <h5>Seasonal Training</h5>
+            <p>When procedures roll out, all drivers complete updated training within required timeframes</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="250">
+            <h5>Performance Development</h5>
+            <p>Top-performing drivers access advanced training and professional development courses</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="300">
+            <h5>Insurance & Audit Compliance</h5>
+            <p>Complete training records provide documentation for insurance verification and audits</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="350">
+            <h5>Hazmat Training</h5>
+            <p>Drivers transporting hazardous materials complete and maintain required certifications</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="400">
+            <h5>Defensive Driving</h5>
+            <p>Annual defensive driving courses improve safety and may reduce insurance premiums</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose This Feature Section -->
+    <section class="section section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Why Choose Training & Compliance</h2>
+        <div class="why-choose-section" data-aos="fade-up">
+          <p>Training compliance isn't optional-it's essential for safety, insurance, and legal compliance. But traditional training methods (in-person sessions, off-site courses) take drivers away from deliveries and cost money.</p>
+          <p>Our mobile training platform brings compliance training to your pocket. Required courses are accessible whenever you have downtime. Walk-around checklists take 5 minutes and catch vehicle problems before they become safety issues.</p>
+          <p>For your company, every completed training is automatically documented. You have proof of compliance for insurance audits. You can see which drivers need refresher training. When regulations change, you can push updated courses to everyone immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration & Compatibility Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Integration & Compatibility</h2>
+        <div class="integration-list">
+          <!-- DYNAMIC: Repeat for each integration -->
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="50">
+            <i class="las la-server"></i>
+            <h5>Video Streaming</h5>
+            <p style="font-size: 13px;">Smooth video playback even on slower connections</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="las la-map"></i>
+            <h5>Document Library</h5>
+            <p style="font-size: 13px;">PDF and document viewing within the app</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="150">
+            <i class="las la-eye"></i>
+            <h5>Progress Database</h5>
+            <p style="font-size: 13px;">Fleetbase SDK tracks all training completion</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="las la-bell"></i>
+            <h5>Certificate Generation</h5>
+            <p style="font-size: 13px;">Automated certificate creation with metadata</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="250">
+            <i class="las la-wifi"></i>
+            <h5>Notification System</h5>
+            <p style="font-size: 13px;">Reminders for course deadlines and certification renewals</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="las la-images"></i>
+            <h5>Compliance Reporting</h5>
+            <p style="font-size: 13px;">Integration with audit and compliance systems</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="350">
+            <i class="las la-plug"></i>
+            <h5>Test Management</h5>
+            <p style="font-size: 13px;">Quiz and assessment creation and tracking</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="las la-cog"></i>
+            <h5>Learning Analytics</h5>
+            <p style="font-size: 13px;">Completion and performance tracking</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section-bottom" data-aos="fade-up">
+      <div class="container">
+        <h2>Ready to transform your operations?</h2>
+        <p>Experience Training & Compliance and discover how it can streamline your training & compliance workflow.</p>
+        <a href="/#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
+          <span>Book a Demo</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="../" class="logo d-flex align-items-center">
+            <img src="../assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>
+            195–197 Wood Street<br>
+            London E17 3NU<br>
+            United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class=" d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="../assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <!-- VASP Banner Script -->
+  <script>
+    (function () {
+      var banner   = document.getElementById('vasp-banner');
+      var carousel = document.getElementById('vasp-carousel');
+      var track    = document.getElementById('vasp-track');
+      var closeBtn = document.getElementById('vasp-close-btn');
+      var slides   = track ? track.querySelectorAll('.vasp-slide') : [];
+      var total    = slides.length;
+      var current  = 0;
+      var timer    = null;
+
+      function setSlideWidths() {
+        if (!carousel || !track) return;
+        var w = carousel.offsetWidth;
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].style.width = w + 'px';
+        }
+      }
+
+      function goTo(index) {
+        if (!carousel || !track) return;
+        current = ((index % total) + total) % total;
+        var w = carousel.offsetWidth;
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      }
+
+      function next() { goTo(current + 1); }
+
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto()  { clearInterval(timer); }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          stopAuto();
+          banner.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+          banner.style.opacity = '0';
+          banner.style.maxHeight = '0';
+          setTimeout(function () {
+            banner.style.display = 'none';
+            document.documentElement.style.setProperty('--vasp-banner-height', '0px');
+          }, 350);
+        });
+      }
+
+      if (banner) {
+        banner.addEventListener('mouseenter', stopAuto);
+        banner.addEventListener('mouseleave', startAuto);
+      }
+
+      function syncBannerHeight() {
+        var h = (banner && banner.style.display !== 'none') ? banner.offsetHeight : 0;
+        document.documentElement.style.setProperty('--vasp-banner-height', (h || 56) + 'px');
+      }
+
+      window.addEventListener('resize', function () {
+        setSlideWidths();
+        goTo(current);
+        syncBannerHeight();
+      });
+
+      setSlideWidths();
+      startAuto();
+      syncBannerHeight();
+    })();
+  </script>
+
+</body>
+
+</html>
