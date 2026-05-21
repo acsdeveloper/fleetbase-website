@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>All Features - FleetYes</title>
+  <meta name="description"
+    content="Explore all FleetYes features for transport management, logistics operations, and fleet management solutions." />
+  <meta name="keywords" content="transport management features, logistics software features, fleet management tools" />
+
+  <!-- Favicons -->
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</head>
+
+<body class="features-page">
+
+  <!-- VASP Amazon AFP Banner -->
+  <div id="vasp-banner" class="vasp-banner">
+    <div class="vasp-banner-inner">
+      <div class="vasp-carousel" id="vasp-carousel" aria-live="polite">
+        <div class="vasp-track" id="vasp-track">
+          <!-- Slide 1: VAS Provider -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                    fill="currentColor" />
+                </svg>
+                <span>Official VAS Provider</span>
+              </div>
+              <span class="vasp-headline">Officially recognised as an <span class="vasp-amazon">Amazon AFP</span>
+                <strong>Value Added Service (VAS) Provider</strong></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/vas-provider" class="vasp-learn-more"
+                aria-label="Learn more about FleetYes as an Amazon AFP VAS Provider">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2: AFF Event -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none" />
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span>AFF Event 2026</span>
+              </div>
+              <span class="vasp-headline">Join us at the <strong>AFF Event 2026</strong> <span
+                  class="vasp-event-date">Rome · May 26–28</span></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/aff-event" class="vasp-learn-more" aria-label="Learn more about the AFF Event 2026">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close -->
+      <button class="vasp-close" id="vasp-close-btn" aria-label="Close banner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="features" class="active">Features</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Features Page Hero Section -->
+    <section id="features" class="hero section dark-background">
+      <img src="assets/img/features-bg.webp" alt="" />
+      <div class="container">
+        <div class="row gy-4 flex justify-content-center">
+          <div class="col-xl-8 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+            <h1 class="text-center mb-3">
+              All Features
+            </h1>
+            <p class="text-center">
+              Comprehensive transport management solutions designed for your business. Explore our complete suite of
+              tools and capabilities to streamline operations, enhance efficiency, and deliver exceptional logistics
+              performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid Section -->
+    <section id="keyfeatures" class="services section light-background">
+
+      <div class="container">
+        <!-- Mobile App Features -->
+        <div class="mb-5">
+          <h2 class="section-title mb-4" data-aos="fade-up">Mobile App Features</h2>
+          <div class="row gy-4">
+            <a href="feature/ai-receipt-recognition" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/ai-receipt-recognition.webp')"
+                ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-robot feature-icon"></i>
+                  <h3>AI-Powered Receipt Recognition</h3>
+                  <p>One photo, instant extraction-machine learning does the tedious data typing for you</p>
+                </div>
+              </div>
+            </a>
+
+
+
+            <a href="feature/passwordless-otp-authentication" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/passwordless-otp-authentication.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-key feature-icon"></i>
+                  <h3>Passwordless & OTP Authentication</h3>
+                  <p>Secure your account in seconds-no passwords to remember, no complex rules to follow</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/dark-mode-customisable-themes" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/dark-mode-customisable-themes.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-moon-stars-fill feature-icon"></i>
+                  <h3>Dark Mode & Customisable Themes</h3>
+                  <p>Dark mode by default, light mode when you need it, brand colours throughout-visual comfort meets
+                    identity</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/driver-operations" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/driver-operations.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-briefcase-fill feature-icon"></i>
+                  <h3>Driver Operations</h3>
+                  <p>Complete mobile delivery management at your fingertips</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/driver-profile-documents" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/driver-profile-documents.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-file-person-fill feature-icon"></i>
+                  <h3>Driver Profile & Documents</h3>
+                  <p>Your entire portfolio in your pocket-always ready to prove your credentials</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/expense-receipt-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/expense-receipt-management.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-receipt feature-icon"></i>
+                  <h3>Expense & Receipt Management</h3>
+                  <p>Turn receipt photos into instant reimbursement-no typing, no delays, no lost paperwork</p>
+                </div>
+              </div>
+            </a>
+
+
+
+            <a href="feature/internationalisation-localisation" class="col-md-6 col-xl-3"
+              style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/internationalisation-localisation.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-globe feature-icon"></i>
+                  <h3>Internationalisation & Localisation</h3>
+                  <p>Your language. Your currency. Your format. Regional adaptation from day one</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/issue-reporting" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/issue-reporting.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-exclamation-triangle-fill feature-icon"></i>
+                  <h3>Issue Reporting</h3>
+                  <p>Problems get fixed faster when you report them immediately-not at the end of your shift</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/offline-first-architecture" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/offline-first-architecture.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-cloud-check feature-icon"></i>
+                  <h3>Offline-First Architecture</h3>
+                  <p>Dead zones don't mean dead time-work everywhere, sync automatically when you reconnect</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/real-time-order-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/real-time-order-management.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-lightning-charge-fill feature-icon"></i>
+                  <h3>Real-Time Order Management</h3>
+                  <p>Turn dispatch delays into instant action-every job is opportunity, never a bottleneck</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/shift-leave-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/shift-leave-management.webp')"
+                ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-calendar2-check feature-icon"></i>
+                  <h3>Shift & Leave Management</h3>
+                  <p>Know your schedule perfectly-plan personal time with zero confusion or back-and-forth</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/training-compliance" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/training-compliance.webp')"
+                ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-mortarboard feature-icon"></i>
+                  <h3>Staff Training & Compliance Documents</h3>
+                  <p>Compliance stops being a pain-training in your pocket, safety checks automated, certificates
+                    managed for you</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dashboard Features -->
+        <div class="mb-5">
+          <h2 class="section-title mb-4" data-aos="fade-up">Dashboard Features</h2>
+          <div class="row gy-4">
+            <a href="feature/compliance-engine" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/compliance-engine.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-shield-check feature-icon"></i>
+                  <h3>Compliance Engine</h3>
+                  <p>Automatically enforce UK and EU transport regulations in real time to prevent costly violations and
+                    fines.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/driver-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/driver-management.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-people-fill feature-icon"></i>
+                  <h3>Driver Management</h3>
+                  <p>Onboard, schedule, and monitor your driver team with compliance and capability in focus.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/fuel-tracking" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/fuel-tracking.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-fuel-pump feature-icon"></i>
+                  <h3>Fuel & Cost Management</h3>
+                  <p>Track fuel consumption, expenses, and receipts to control fleet costs and improve profitability.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/import-hub" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/import-hub.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-download feature-icon"></i>
+                  <h3>Import Hub & Data Integration</h3>
+                  <p>Connect external systems and bulk-load data from load boards, Excel, and partner platforms.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/leave-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/leave-management.webp');">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-calendar-x feature-icon"></i>
+                  <h3>Leave & Absence Management</h3>
+                  <p>Record, approve, and integrate driver leave into scheduling to prevent over-booking and gaps in
+                    coverage.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/operational-dashboard" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/operational-dashboard.webp');">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-speedometer2 feature-icon"></i>
+                  <h3>Operational Dashboard</h3>
+                  <p>Real-time visibility of all fleet operations on a single, customizable screen.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/org-settings-permissions" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/org-settings-permissions.webp');">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-gear-fill feature-icon"></i>
+                  <h3>Organisation Settings & Permissions</h3>
+                  <p>Manage users, control access by role, and maintain audit logs for compliance and accountability.
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/rota-scheduling" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/rota-scheduling.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-calendar-week feature-icon"></i>
+                  <h3>Rota Scheduling & Planning</h3>
+                  <p>Build flexible weekly schedules that respect driver availability, compliance rules, and operational
+                    needs.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/toll-expense-tracking" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/toll-expense-tracking.webp')"
+                ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-credit-card feature-icon"></i>
+                  <h3>Toll & Expense Tracking</h3>
+                  <p>Capture tolls, parking, fines, and ad-hoc costs and link them accurately to trips for cost
+                    allocation.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/trip-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/trip-management.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-arrow-left-right feature-icon"></i>
+                  <h3>Trip & Route Management</h3>
+                  <p>Schedule, dispatch, and track deliveries end-to-end with real-time visibility and intelligent
+                    routing.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/vehicle-inspection" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/vehicle-inspection.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-clipboard-check feature-icon"></i>
+                  <h3>Vehicle Inspection & Walkaround</h3>
+                  <p>Document vehicle condition with photos and checklists before and after every trip.</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/vehicle-management" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/vehicle-management.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-truck feature-icon"></i>
+                  <h3>Vehicle Management</h3>
+                  <p>Track maintenance, compliance, and utilisation to maximise fleet reliability and uptime.</p>
+                </div>
+              </div>
+            </a>
+            <a href="feature/background-location-tracking" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/background-location-tracking.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-geo-alt-fill feature-icon"></i>
+                  <h3>Background Location Tracking</h3>
+                  <p>Silent, efficient, always on-GPS tracking that doesn't kill your battery or slow your phone</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/gps-navigation-route-tracking" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/gps-navigation-route-tracking.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-map feature-icon"></i>
+                  <h3>GPS Navigation & Route Tracking</h3>
+                  <p>Never miss a turn, never take the wrong route, never waste time on backtracking</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/push-notifications-real-time-updates" class="col-md-6 col-xl-3"
+              style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/push-notifications-real-time-updates.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-bell-fill feature-icon"></i>
+                  <h3>Push Notifications & Real-Time Updates</h3>
+                  <p>Instant alerts for everything that matters-never miss a new order, cancellation, or urgent message
+                    again</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Integration & Components -->
+        <div class="mb-5">
+          <h2 class="section-title mb-4" data-aos="fade-up">Integrations & Components</h2>
+          <div class="row gy-4">
+            <a href="feature/calendar-scheduling" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/calendar-scheduling.webp')"
+                ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-calendar-event feature-icon"></i>
+                  <h3>Calendar & Scheduling Integration</h3>
+                  <p>Your schedule at a glance-visual calendar makes planning intuitive and conflict-proof</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/google-maps-navigation" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/google-maps-navigation-apis.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-map-fill feature-icon"></i>
+                  <h3>Google Maps & Navigation APIs</h3>
+                  <p>World-class mapping at your fingertips-traffic-aware routing, multiple navigation options, zero
+                    lock-in</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/image-processing" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card" style="background-image: url('assets/img/features/image-processing.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-image feature-icon"></i>
+                  <h3>Image Processing & Camera Integration</h3>
+                  <p>Professional photos, optimised automatically-capture, process, and upload in seconds</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="feature/ml-kit-text-recognition" class="col-md-6 col-xl-3" style="text-decoration: none;">
+              <div class="feature-card"
+                style="background-image: url('assets/img/features/ml-kit-text-recognition.webp')" ;">
+                <div class="overlay"></div>
+                <div class="feature-card-content">
+                  <i class="bi-type feature-icon"></i>
+                  <h3>ML Kit Text Recognition</h3>
+                  <p>Private, instant text extraction-AI that runs on your phone, not in the cloud</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>
+            195–197 Wood Street<br>
+            London E17 3NU<br>
+            United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class=" d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- VASP Banner Script -->
+  <script>
+    (function () {
+      var banner = document.getElementById('vasp-banner');
+      var carousel = document.getElementById('vasp-carousel');
+      var track = document.getElementById('vasp-track');
+      var closeBtn = document.getElementById('vasp-close-btn');
+      var slides = track ? track.querySelectorAll('.vasp-slide') : [];
+      var total = slides.length;
+      var current = 0;
+      var timer = null;
+
+      function setSlideWidths() {
+        if (!carousel || !track) return;
+        var w = carousel.offsetWidth;
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].style.width = w + 'px';
+        }
+      }
+
+      function goTo(index) {
+        if (!carousel || !track) return;
+        current = ((index % total) + total) % total;
+        var w = carousel.offsetWidth;
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      }
+
+      function next() { goTo(current + 1); }
+
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto() { clearInterval(timer); }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          stopAuto();
+          banner.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+          banner.style.opacity = '0';
+          banner.style.maxHeight = '0';
+          setTimeout(function () {
+            banner.style.display = 'none';
+            document.documentElement.style.setProperty('--vasp-banner-height', '0px');
+          }, 350);
+        });
+      }
+
+      if (banner) {
+        banner.addEventListener('mouseenter', stopAuto);
+        banner.addEventListener('mouseleave', startAuto);
+      }
+
+      function syncBannerHeight() {
+        var h = (banner && banner.style.display !== 'none') ? banner.offsetHeight : 0;
+        document.documentElement.style.setProperty('--vasp-banner-height', (h || 56) + 'px');
+      }
+
+      window.addEventListener('resize', function () {
+        setSlideWidths();
+        goTo(current);
+        syncBannerHeight();
+      });
+
+      setSlideWidths();
+      startAuto();
+      syncBannerHeight();
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Fuel & Cost Management - FleetYes</title>
+  <meta name="description" content="Track fuel consumption, expenses, and receipts to control fleet costs and improve profitability." />
+  <meta name="keywords" content="Fuel & Cost Management, FleetYes, fleet management, fleet operations dashboard, Cut fuel costs by 15–20% through real-time consumption tracking and mechanical issue detection, Eliminate fuel expense admin overhead by 90% with automatic receipt capture and OCR processing, Recover all fuel costs from customers with accurate trip-level cost allocation" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/fleetyes.svg" rel="icon" />
+  <link href="../assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <style>
+    /* Feature Page Specific Styles */
+    .feature-page-hero {
+      background: linear-gradient(135deg, rgba(47, 50, 55, 0.95) 0%, rgba(45, 63, 53, 0.95) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-page-hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .feature-page-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-page-hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .feature-page-hero .subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .section-wrapper {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .benefit-card {
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .benefit-card p {
+      font-size: 15px;
+      color: var(--default-color);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .step-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 auto 20px;
+    }
+
+    .step-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--default-color);
+      line-height: 1.6;
+    }
+
+    .capabilities-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .capability-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+    }
+
+    .capability-item i {
+      color: var(--accent-color);
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .capability-item h5 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .capability-item p {
+      font-size: 14px;
+      color: var(--default-color);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .use-case-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .use-case-card h5 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .use-case-card p {
+      font-size: 14px;
+      color: var(--default-color);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .feature-highlight-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .feature-highlight-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .feature-highlight-wrapper {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 60px 50px;
+    }
+
+    .feature-highlight {
+      width: 100%;
+      padding: 0;
+    }
+
+    .feature-highlight-content {
+      text-align: left;
+    }
+
+    .feature-highlight-icon {
+      font-size: 64px;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-highlight h3 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .feature-highlight p {
+      font-size: 16px;
+      color: var(--default-color);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .feature-highlight-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .feature-highlight-image {
+        min-height: 300px;
+      }
+
+      .feature-highlight {
+        padding: 40px 20px;
+      }
+
+      .feature-highlight h3 {
+        font-size: 22px;
+      }
+    }
+
+    .integration-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .integration-item {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #f0f0f0;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .integration-item:hover {
+      border-color: var(--accent-color);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .integration-item i {
+      font-size: 32px;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+    }
+
+    .integration-item h5 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin: 0 0 10px 0;
+    }
+
+    .why-choose-section {
+      background: linear-gradient(135deg, rgba(47, 50, 55, 0.05) 0%, rgba(45, 63, 53, 0.05) 100%);
+      padding: 60px 40px;
+      border-radius: 12px;
+      margin: 0;
+    }
+
+    .why-choose-section h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+    }
+
+    .why-choose-section p {
+      font-size: 16px;
+      color: var(--default-color);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .cta-section-bottom {
+      padding: 80px 30px;
+    }
+
+    .cta-section-bottom .container {
+      background: linear-gradient(135deg, #496453 0%, #2d3f35 100%);
+      color: white;
+      padding: 60px 50px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .cta-section-bottom h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .cta-section-bottom p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section-bottom .read-more {
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+      padding: 12px 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-section-bottom .read-more:hover {
+      background-color: #ffffff;
+      color: #496453 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .breadcrumb-nav {
+      margin-bottom: 30px;
+    }
+
+    .breadcrumb-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .breadcrumb-nav a:hover {
+      color: rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .feature-page-hero h1 {
+        font-size: 32px;
+      }
+
+      .feature-page-hero .subtitle {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .benefits-grid,
+      .steps-container,
+      .use-cases-grid,
+      .integration-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-wrapper {
+        padding: 50px 0;
+      }
+
+      .cta-section-bottom h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</head>
+
+<body class="features-page">
+
+  <!-- VASP Amazon AFP Banner -->
+  <div id="vasp-banner" class="vasp-banner">
+    <div class="vasp-banner-inner">
+      <div class="vasp-carousel" id="vasp-carousel" aria-live="polite">
+        <div class="vasp-track" id="vasp-track">
+          <!-- Slide 1: VAS Provider -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                </svg>
+                <span>Official VAS Provider</span>
+              </div>
+              <span class="vasp-headline">Officially recognised as an <span class="vasp-amazon">Amazon AFP</span> <strong>Value Added Service (VAS) Provider</strong></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/vas-provider" class="vasp-learn-more" aria-label="Learn more about FleetYes as an Amazon AFP VAS Provider">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2: AFF Event -->
+          <div class="vasp-slide">
+            <div class="vasp-banner-left">
+              <div class="vasp-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>AFF Event 2026</span>
+              </div>
+              <span class="vasp-headline">Join us at the <strong>AFF Event 2026</strong> <span class="vasp-event-date">Rome · May 26–28</span></span>
+            </div>
+            <div class="vasp-banner-right">
+              <a href="/aff-event" class="vasp-learn-more" aria-label="Learn more about the AFF Event 2026">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close -->
+      <button class="vasp-close" id="vasp-close-btn" aria-label="Close banner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="../" class="logo d-flex align-items-center me-auto">
+        <img src="../assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="feature-page-hero section" style="padding: 180px 0 80px 0;">
+      <img src="../assets/img/features/fuel-tracking.webp" alt="" />
+      <div class="container" data-aos="fade-up">
+        <div class="breadcrumb-nav mb-4">
+          <a href="/features">Features</a> <span class="mx-2">/</span> <span style="color: white;">Fuel & Cost Management</span>
+        </div>
+        <h1>Fuel & Cost Management</h1>
+        <p class="subtitle">Track fuel consumption, expenses, and receipts to control fleet costs and improve profitability.</p>
+        <a href="/#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
+          <span>Book a Demo</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Key Benefits</h2>
+        <div class="benefits-grid">
+          <!-- DYNAMIC: Repeat for each benefit -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Eliminate fuel expense admin overhead by 90% with automatic receipt capture and OCR processing</h4>
+            <p>Photograph fuel receipt. System reads all details automatically. Zero manual typing. Instant categorisation and allocation. Finance team freed up.</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Recover all fuel costs from customers with accurate trip-level cost allocation</h4>
+            <p>Fuel linked to specific trip and customer automatically. Know exact fuel cost per delivery. Perfect accuracy for customer invoicing and margin analysis.</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Accelerate fuel card reconciliation by hours using bulk import from pump networks</h4>
+            <p>Shell, BP, Tesco, or generic fuel card data imports in minutes. All transactions automatically categorised and matched to vehicles. Reconciliation automated.</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Prevent fuel card fraud and unauthorised spending with automatic anomaly alerts</h4>
+            <p>System flags fuel purchases outside normal routes, amounts, or times. Driver buys fuel in unexpected location? Alert sent immediately. Prevents abuse.</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Speed up monthly close by automating fuel export to accounting systems</h4>
+            <p>One-click export to Xero, QuickBooks, or SAP. All fuel expenses automatically categorised and coded. No manual journal entries needed. Finance closes 2 days faster.</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+            <h4>Prove cost control to CFO and stakeholders with comprehensive fuel dashboards and reports</h4>
+            <p>Visualise cost per vehicle, per route, per mile. Identify high-cost vehicles and inefficient routes. Data-driven decisions optimise fleet profitability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+        <div class="steps-container">
+          <!-- DYNAMIC: Repeat for each step -->
+          <div class="step-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-number">1</div>
+            <h4>Log fuel purchases</h4>
+            <p>Enter manually, upload from Excel, or photograph receipt. System reads receipt details via OCR.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">2</div>
+            <h4>Link to vehicles and trips</h4>
+            <p>Assign fuel purchase to specific vehicle or trip. Automatic date matching with trip records.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="step-number">3</div>
+            <h4>Track and analyse</h4>
+            <p>Dashboard shows fuel consumption per vehicle, cost per litre, and anomalies. Alerts flag unusual activity.</p>
+          </div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">4</div>
+            <h4>Export and reconcile</h4>
+            <p>Download fuel data for accounting. Automatic export to accounting systems. Match against fuel card statements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Capabilities Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Core Capabilities</h2>
+        <div class="capabilities-list">
+          <!-- DYNAMIC: Repeat for each capability -->
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="50">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Receipt capture and OCR</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Bulk fuel import from files</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="150">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Fuel card integration</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Vehicle-level fuel consumption tracking</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="250">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Fuel expense allocation</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Anomaly detection</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="350">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Fuel consumption forecasting</h5>
+              <p></p>
+            </div>
+          </div>
+          <div class="capability-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <h5>Expense reporting and reconciliation</h5>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlight Section -->
+    <section class="feature-highlight-section">
+      <img src="../assets/img/features-mobile/fuel-tracking-mobile.webp" alt="Fuel & Cost Management" class="feature-highlight-image">
+      <div class="feature-highlight-wrapper">
+        <div class="container">
+          <div class="feature-highlight" data-aos="fade-up">
+            <div class="feature-highlight-content">
+              <div class="feature-highlight-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <h3>Fuel & Cost Management</h3>
+              <p>See exactly where your fuel costs go. Anomalies are flagged instantly, helping you cut fuel costs by 15-20% and eliminate fraud.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Real-World Use Cases</h2>
+        <div class="use-cases-grid">
+          <!-- DYNAMIC: Repeat for each use case -->
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="50">
+            <h5>Large fleet operator (100+ vehicles)</h5>
+            <p>Track fuel across entire fleet. Identify vehicles consuming more than expected. Diagnose maintenance issues or driver behaviour.</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="150">
+            <h5>On-demand logistics</h5>
+            <p>Real-time fuel cost tracking per trip. Calculate driver earnings after fuel deductions. Improve independent driver retention.</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="300">
+            <h5>Fuel budget management</h5>
+            <p>Forecast quarterly and annual fuel costs based on historical trends. Negotiate bulk discounts with suppliers based on projected volumes.</p>
+          </div>
+          <div class="use-case-card" data-aos="fade-up" data-aos-delay="350">
+            <h5>Driver reimbursement and accountability</h5>
+            <p>Drivers track personal fuel purchases for reimbursement. System approves and allocates costs. No disputes or delays.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose This Feature Section -->
+    <section class="section section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Reduce Fuel Costs and Gain Better Expense Visibility</h2>
+        <div class="why-choose-section" data-aos="fade-up">
+          <p>Fuel is often your largest controllable cost-and fraud and waste silently erode margins. Without visibility, you're flying blind: drivers fill up at premium pumps, fuel card fraud goes undetected, consumption anomalies hide mechanical problems, and fuel costs spiral.</p>
+          <p>FleetYes's fuel tracking gives you complete visibility and control. Every fuel purchase is recorded with timestamp, location, and cost. Anomaly detection flags suspicious patterns instantly. OCR automatically reads receipts. You see consumption trends and identify efficiency improvements.</p>
+          <p>The result is immediate: 15–20% fuel cost reduction, fraud eliminated, and 90% reduction in reconciliation overhead. Fuel costs drop from a mystery to a managed asset.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration & Compatibility Section -->
+    <section class="section light-background section-wrapper">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Integration & Compatibility</h2>
+        <div class="integration-list">
+          <!-- DYNAMIC: Repeat for each integration -->
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="50">
+            <i class="bi bi-fuel-pump"></i>
+            <h5>Fuel card providers</h5>
+            <p style="font-size: 13px;">Direct integration with Shell, BP, Tesco, and generic fleet fuel cards. Automatic daily transaction sync.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="bi bi-truck"></i>
+            <h5>Vehicle telematics (Geotab)</h5>
+            <p style="font-size: 13px;">Combine fuel data with vehicle performance metrics. Link fuel consumption to harsh driving, idle time, and maintenance needs.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="150">
+            <i class="bi bi-calculator"></i>
+            <h5>Accounting systems</h5>
+            <p style="font-size: 13px;">Export fuel expenses to Xero, QuickBooks, SAP, or custom ERP. Automated GL code mapping. No manual journal entry.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-map"></i>
+            <h5>Trip management system</h5>
+            <p style="font-size: 13px;">Fuel purchases automatically linked to associated trips. Fuel cost included in trip cost calculation and customer invoicing.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="250">
+            <i class="bi bi-wallet2"></i>
+            <h5>Driver expense system</h5>
+            <p style="font-size: 13px;">Drivers submit fuel receipts for reimbursement. Automatic validation and approval workflow. Faster reimbursement.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="bi bi-diagram-3"></i>
+            <h5>Predictive maintenance</h5>
+            <p style="font-size: 13px;">Fuel consumption anomalies trigger maintenance alerts. Potential mechanical issues identified before they cause downtime.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="350">
+            <i class="bi bi-sliders"></i>
+            <h5>Customer billing</h5>
+            <p style="font-size: 13px;">Fuel costs included in trip billing. Accurate recovery of fuel expenses from customers. Improved margin protection.</p>
+          </div>
+          <div class="integration-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-graph-up"></i>
+            <h5>Analytics and BI platforms</h5>
+            <p style="font-size: 13px;">Export fuel data to Tableau, Looker, or custom dashboard. Advanced analysis of consumption trends and cost drivers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Final CTA Section -->
+    <section class="cta-section-bottom" data-aos="fade-up">
+      <div class="container">
+        <h2>Cut Fuel Costs by 15-20% and Eliminate Fraud</h2>
+        <p>See exactly where your fuel goes. Anomaly detection flags suspicious activity instantly. Control your largest expense.</p>
+        <a href="/#contact" class="read-more" style="color: #ffffff; border-color: #ffffff;">
+          <span>Book a Demo</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="../" class="logo d-flex align-items-center">
+            <img src="../assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>
+            195–197 Wood Street<br>
+            London E17 3NU<br>
+            United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class=" d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="../assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <!-- VASP Banner Script -->
+  <script>
+    (function () {
+      var banner   = document.getElementById('vasp-banner');
+      var carousel = document.getElementById('vasp-carousel');
+      var track    = document.getElementById('vasp-track');
+      var closeBtn = document.getElementById('vasp-close-btn');
+      var slides   = track ? track.querySelectorAll('.vasp-slide') : [];
+      var total    = slides.length;
+      var current  = 0;
+      var timer    = null;
+
+      function setSlideWidths() {
+        if (!carousel || !track) return;
+        var w = carousel.offsetWidth;
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].style.width = w + 'px';
+        }
+      }
+
+      function goTo(index) {
+        if (!carousel || !track) return;
+        current = ((index % total) + total) % total;
+        var w = carousel.offsetWidth;
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      }
+
+      function next() { goTo(current + 1); }
+
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto()  { clearInterval(timer); }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          stopAuto();
+          banner.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+          banner.style.opacity = '0';
+          banner.style.maxHeight = '0';
+          setTimeout(function () {
+            banner.style.display = 'none';
+            document.documentElement.style.setProperty('--vasp-banner-height', '0px');
+          }, 350);
+        });
+      }
+
+      if (banner) {
+        banner.addEventListener('mouseenter', stopAuto);
+        banner.addEventListener('mouseleave', startAuto);
+      }
+
+      function syncBannerHeight() {
+        var h = (banner && banner.style.display !== 'none') ? banner.offsetHeight : 0;
+        document.documentElement.style.setProperty('--vasp-banner-height', (h || 56) + 'px');
+      }
+
+      window.addEventListener('resize', function () {
+        setSlideWidths();
+        goTo(current);
+        syncBannerHeight();
+      });
+
+      setSlideWidths();
+      startAuto();
+      syncBannerHeight();
+    })();
+  </script>
+
+</body>
+
+</html>

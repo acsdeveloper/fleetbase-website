@@ -307,3 +307,6 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
     });
   }
 })();
+  /**
+   * AI Features Slider is now handled by Swiper (see HTML for config)
+   */

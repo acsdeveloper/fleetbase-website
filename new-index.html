@@ -1,0 +1,1911 @@
+<!-- new-index.html | FleetYes Redesign Draft -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FleetYes - Transport Management Software</title>
+  <meta name="description" content="FleetYes offers innovative transport management software to streamline logistics operations, improve efficiency, and enhance customer satisfaction. Perfect for businesses seeking agility in a fast-paced industry." />
+  <meta name="keywords" content="transport management, logistics software, fleet management, operations console, TMS, driver app, API integrations, fuel tracking, parking monitoring, toll expenses, vehicle issue tracking" />
+
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" />
+
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" />
+  <link rel="stylesheet" href="assets/vendor/aos/aos.css" />
+  <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <style>
+    :root {
+      --vasp-banner-height: 56px;
+      --font-family-base: "Marcellus", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --font-family-heading: "Marcellus", sans-serif;
+      --color-bg-primary: #ffffff;
+      --color-text-primary: #444444;
+      --color-text-heading: #5e636e;
+      --color-accent: #2f3237;
+      --color-surface: #ffffff;
+      --color-text-contrast: #ffffff;
+      --color-bg-dark: #5e636e;
+      --color-bg-light: #f5f6f8;
+      --color-vasp-green: #3cb463;
+      --color-success: #059652;
+      --color-error: #df1529;
+      --color-warning: #ffc107;
+      --spacing-unit: 1rem;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family-base);
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition-speed) ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: color-mix(in srgb, var(--color-accent) 75%, transparent);
+      outline: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-text-heading);
+      font-family: var(--font-family-heading);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.25rem; }
+    }
+
+    section, .section {
+      padding: 60px 0;
+      scroll-margin-top: calc(88px + var(--vasp-banner-height, 0px));
+      overflow: clip;
+    }
+
+    @media (max-width: 1199px) {
+      section, .section {
+        scroll-margin-top: calc(66px + var(--vasp-banner-height, 0px));
+      }
+    }
+
+    .light-background {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-primary);
+    }
+
+    .dark-background {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-contrast);
+    }
+
+    .dark-background h1,
+    .dark-background h2,
+    .dark-background h3,
+    .dark-background h4,
+    .dark-background h5,
+    .dark-background h6 {
+      color: var(--color-text-contrast);
+    }
+
+    /* VASP Banner */
+    .vasp-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9997;
+      background: var(--color-vasp-green);
+      overflow: hidden;
+      max-height: 100px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .vasp-banner-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 20px;
+      min-height: 50px;
+      gap: 16px;
+    }
+
+    .vasp-carousel {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .vasp-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .vasp-slide {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .vasp-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .vasp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .vasp-badge svg {
+      width: 16px;
+      height: 16px;
+      color: #ffffff;
+    }
+
+    .vasp-headline {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vasp-headline strong {
+      font-weight: 700;
+    }
+
+    .vasp-amazon {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .vasp-event-date {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: 2px;
+    }
+
+    .vasp-banner-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .vasp-learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      color: #2a7f47 !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 7px 18px;
+      border-radius: 4px;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .vasp-learn-more:hover,
+    .vasp-learn-more:focus {
+      background: #edf7f1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .vasp-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .vasp-close:hover,
+    .vasp-close:focus {
+      background: rgba(0, 0, 0, 0.28);
+      color: #ffffff;
+    }
+
+    @media (max-width: 1100px) {
+      .vasp-badge { display: none; }
+      .vasp-headline { font-size: 13px; }
+    }
+
+    @media (max-width: 900px) {
+      .vasp-headline { font-size: 12px; }
+      .vasp-event-date { display: none; }
+      .vasp-learn-more { font-size: 11px; padding: 6px 12px; }
+    }
+
+    @media (max-width: 768px) {
+      .vasp-banner { max-height: 200px; }
+      .vasp-banner-inner { flex-wrap: wrap; padding: 10px 16px; gap: 6px; min-height: auto; }
+      .vasp-carousel { width: 100%; order: 1; }
+      .vasp-slide { flex-direction: column; align-items: center; gap: 6px; }
+      .vasp-banner-left { flex-direction: column; align-items: center; gap: 4px; width: 100%; }
+      .vasp-headline { font-size: 12px; text-align: center; white-space: normal; }
+      .vasp-event-date { display: inline-flex; font-size: 10px; }
+      .vasp-banner-right { justify-content: center; }
+      .vasp-learn-more { font-size: 11px; padding: 5px 14px; }
+      .vasp-close { order: 2; width: 24px; height: 24px; }
+    }
+
+    /* Header & Navigation */
+    .header {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: var(--vasp-banner-height, 0px) !important;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background-color: transparent;
+      padding: 16px 0;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid transparent;
+    }
+
+    .header.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .header .logo {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      margin-right: auto;
+      text-decoration: none;
+      gap: 10px;
+    }
+
+    .header .logo img {
+      max-height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: filter 0.35s ease;
+    }
+
+    .header.scrolled .logo img {
+      filter: none;
+    }
+
+    .header .logo .sitename {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      color: #ffffff;
+      transition: color 0.35s ease;
+      letter-spacing: -0.5px;
+    }
+
+    .header.scrolled .logo .sitename {
+      color: var(--color-accent);
+    }
+
+    .navmenu {
+      padding: 0;
+    }
+
+    .navmenu ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .navmenu a {
+      color: rgba(255, 255, 255, 0.85);
+      padding: 8px 16px;
+      font-size: 14px;
+      font-family: var(--font-family-heading);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      position: relative;
+      border-radius: 4px;
+    }
+
+    .navmenu a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.7);
+      transition: width 0.25s ease;
+    }
+
+    .navmenu a:hover,
+    .navmenu a:hover::after {
+      color: #ffffff;
+      width: 100%;
+    }
+
+    .header.scrolled .navmenu a {
+      color: var(--color-accent);
+    }
+
+    .header.scrolled .navmenu a::after {
+      background: var(--color-accent);
+    }
+
+    .navmenu a.active {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .header.scrolled .navmenu a.active {
+      color: var(--color-accent);
+      background: rgba(47, 50, 55, 0.05);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+      border: none;
+      background: none;
+      padding: 8px;
+    }
+
+    .header.scrolled .mobile-nav-toggle {
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 1199px) {
+      .navmenu ul {
+        position: fixed;
+        top: calc(60px + var(--vasp-banner-height, 0px));
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        padding: 20px 0;
+        display: none;
+        z-index: 9997;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+      }
+
+      .navmenu.active ul {
+        display: flex;
+      }
+
+      .navmenu a {
+        padding: 14px 24px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        border-radius: 0;
+      }
+
+      .navmenu a::after {
+        display: none;
+      }
+
+      .navmenu a:hover {
+        background: rgba(47, 50, 55, 0.05);
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      padding: calc(120px + var(--vasp-banner-height, 0px)) 0 60px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2d2f38 0%, #3a3d46 100%);
+      clip-path: inset(0);
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(47, 50, 55, 0.8) 0%, rgba(94, 99, 110, 0.7) 100%);
+      z-index: 2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1.5;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 3;
+      max-width: 1100px;
+    }
+
+    .hero .row {
+      align-items: center;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 20px 0;
+      letter-spacing: -0.5px;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero .row.flex {
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: calc(110px + var(--vasp-banner-height, 0px)) 0 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        line-height: 1.25;
+        margin-bottom: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    .card--hero {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      backdrop-filter: blur(12px);
+      padding: 36px 28px !important;
+      border-radius: 12px !important;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card--hero:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .card__title {
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .card__description {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      background-color: var(--color-bg-primary);
+    }
+
+    .about img {
+      border-radius: 8px;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .about p {
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-family: var(--font-family-heading);
+      font-size: 15px;
+      letter-spacing: 1px;
+      transition: all var(--transition-speed) ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--color-accent) !important;
+      font-weight: 600;
+      padding: 14px 40px;
+      font-size: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-light:hover {
+      background: #f0f0f0;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--color-text-contrast) !important;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+    }
+
+    .btn--outline {
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      background: transparent;
+    }
+
+    .btn--outline:hover {
+      background: var(--color-accent);
+      color: #ffffff;
+    }
+
+    /* Features Section */
+    .features {
+      background-color: var(--color-bg-light);
+    }
+
+    .section-title {
+      text-align: center;
+      padding-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: capitalize;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .section-title h2::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 160px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+      left: 50%;
+      bottom: 1px;
+      transform: translateX(-50%);
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--color-accent);
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+
+    .section-title p {
+      font-size: 16px;
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+
+    .feature-card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      overflow: hidden;
+      color: #ffffff;
+      height: 370px;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .feature-card__content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .feature-card__icon {
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .feature-card__title {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .feature-card__description {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      background: url('assets/img/pricing_section_bg.webp') no-repeat center center / cover;
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .pricing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .pricing .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing__title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .pricing__lead {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .pricing__amount {
+      font-size: 3rem;
+      font-weight: 700;
+      display: inline-block;
+      margin: 0 10px;
+      color: #ffffff;
+    }
+
+    .pricing__card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 35px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .pricing__features {
+      list-style: none;
+      padding: 15px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .pricing__feature {
+      padding: 5px 0;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .pricing__feature::before {
+      content: "✓";
+      color: #ffffff;
+      font-weight: bold;
+      margin-right: 12px;
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .pricing__features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .pricing__card {
+        padding: 30px;
+      }
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--color-bg-primary);
+    }
+
+    .testimonial-item {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .testimonial-item__name {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 0 5px 0;
+    }
+
+    .testimonial-item__role {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 20px 0;
+    }
+
+    .testimonial-item__quote {
+      font-style: italic;
+      margin: 0;
+      color: var(--color-text-primary);
+      line-height: 1.8;
+    }
+
+    .quote-icon-left,
+    .quote-icon-right {
+      color: rgba(47, 50, 55, 0.3);
+      font-size: 26px;
+      line-height: 0;
+      margin: 0 5px;
+    }
+
+    .swiper-pagination {
+      margin-top: 20px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: var(--color-accent);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: var(--color-bg-light);
+    }
+
+    .form-label {
+      color: var(--color-text-heading);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+      font-size: 14px;
+    }
+
+    .form-label span {
+      color: var(--color-error);
+    }
+
+    .form-control {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      padding: 10px 15px;
+      font-size: 14px;
+      color: var(--color-text-primary);
+      background-color: color-mix(in srgb, var(--color-bg-primary), transparent 50%);
+      transition: border-color var(--transition-speed) ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 2px rgba(47, 50, 55, 0.1);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    .php-email-form button[type="submit"] {
+      background: var(--color-accent);
+      color: #ffffff;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-family: var(--font-family-heading);
+      font-size: 15px;
+      cursor: pointer;
+      transition: background var(--transition-speed) ease;
+    }
+
+    .php-email-form button[type="submit"]:hover {
+      background: color-mix(in srgb, var(--color-accent) 75%, transparent);
+    }
+
+    .cf-turnstile {
+      display: flex;
+      justify-content: center;
+    }
+
+    .loading,
+    .error-message,
+    .sent-message {
+      display: none;
+      padding: 15px;
+      margin-bottom: 24px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .loading {
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+    }
+
+    .error-message {
+      background-color: var(--color-error);
+      color: #ffffff;
+      display: block;
+    }
+
+    .sent-message {
+      background-color: var(--color-success);
+      color: #ffffff;
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      padding-top: 50px;
+      font-size: 14px;
+    }
+
+    .footer-top {
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .footer__about .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer__about .logo img {
+      height: 35px;
+      width: 35px;
+      margin-right: 10px;
+      filter: none;
+    }
+
+    .footer__about .sitename {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--color-text-heading);
+    }
+
+    .footer h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .footer__address {
+      line-height: 1.8;
+      font-style: normal;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+
+    .footer__links {
+      margin-bottom: 20px;
+    }
+
+    .footer__links a {
+      color: var(--color-accent);
+      margin: 0 5px;
+    }
+
+    .footer__links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer__copyright p {
+      margin: 0;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Scroll to Top */
+    .scroll-top {
+      position: fixed;
+      right: 15px;
+      bottom: -15px;
+      z-index: 99999;
+      background-color: var(--color-accent);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 24px;
+      transition: all 0.4s ease;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .scroll-top.active {
+      visibility: visible;
+      opacity: 1;
+      bottom: 15px;
+    }
+
+    .scroll-top:hover,
+    .scroll-top:focus {
+      background-color: color-mix(in srgb, var(--color-accent) 80%, transparent);
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      overflow: hidden;
+      background: var(--color-bg-primary);
+      transition: all 0.6s ease-out;
+    }
+
+    #preloader::before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 6px solid #ffffff;
+      border-color: var(--color-accent) transparent var(--color-accent) transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin-preloader 1.5s linear infinite;
+    }
+
+    @keyframes spin-preloader {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Utility Classes */
+    .container-fluid {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media (max-width: 1199px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 700px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .container {
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -10px;
+      margin-left: -10px;
+    }
+
+    .row > * {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .col-lg-2, .col-lg-6, .col-lg-7, .col-lg-8 {
+      flex: 0 0 auto;
+    }
+
+    .col-lg-2 { width: 16.66666667%; }
+    .col-lg-6 { width: 50%; }
+    .col-lg-7 { width: 58.33333333%; }
+    .col-lg-8 { width: 66.66666667%; }
+
+    .col-xl-3, .col-xl-8 {
+      flex: 0 0 auto;
+    }
+
+    .col-xl-3 { width: 25%; }
+    .col-xl-8 { width: 66.66666667%; }
+
+    @media (max-width: 1199px) {
+      .col-lg-2 { width: auto; flex: 0 0 auto; }
+      .col-lg-6 { width: auto; flex: 1; }
+      .col-lg-7 { width: auto; flex: 1; }
+      .col-lg-8 { width: auto; flex: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .col-md-6 { flex: 0 0 100%; width: 100%; }
+      .col-lg-2 { flex: 0 0 100%; width: 100%; }
+      .col-lg-6 { flex: 0 0 100%; width: 100%; }
+      .col-lg-7 { flex: 0 0 100%; width: 100%; }
+      .col-lg-8 { flex: 0 0 100%; width: 100%; }
+      .col-xl-3 { flex: 0 0 100%; width: 100%; }
+      .col-xl-8 { flex: 0 0 100%; width: 100%; }
+    }
+
+    .d-flex { display: flex; }
+    .flex-column { flex-direction: column; }
+    .align-items-center { align-items: center; }
+    .justify-content-center { justify-content: center; }
+    .justify-content-between { justify-content: space-between; }
+    .gap-4 { gap: 1.5rem; }
+    .mb-3 { margin-bottom: 1rem; }
+    .mb-4 { margin-bottom: 1.5rem; }
+    .mb-5 { margin-bottom: 3rem; }
+    .mt-4 { margin-top: 1.5rem; }
+    .ms-2 { margin-left: 0.5rem; }
+    .me-2 { margin-left: 0.5rem; }
+    .me-auto { margin-right: auto; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .p-2 { padding: 0.5rem; }
+    .pt-3 { padding-top: 1rem; }
+    .px-xl-5 { padding-left: 3rem; padding-right: 3rem; }
+    .text-center { text-align: center; }
+    .text-white { color: #ffffff; }
+    .w-100 { width: 100%; }
+    .gy-4 { row-gap: 1.5rem; }
+    .rounded { border-radius: 0.375rem; }
+    .img-fluid { max-width: 100%; height: auto; }
+    .position-relative { position: relative; }
+    .position-fixed { position: fixed; }
+    .position-absolute { position: absolute; }
+    .fixed-top { position: fixed; top: 0; left: 0; right: 0; }
+    .d-xl-none { display: block; }
+
+    @media (min-width: 1200px) {
+      .d-xl-none { display: none; }
+      .px-xl-5 { padding-left: 3rem; padding-right: 3rem; }
+    }
+
+    .order-2 { order: 2; }
+    .order-lg-1 { order: 1; }
+
+    @media (max-width: 768px) {
+      .mt-md-5 { margin-top: 3rem; }
+      .mt-xl-3 { margin-top: 1rem; }
+      .flex-md-row { flex-direction: row; }
+    }
+
+    /* Data Attributes */
+    [data-aos] {
+      opacity: 0;
+    }
+
+    [data-aos].aos-animate {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- VASP Amazon AFP Banner -->
+  <div id="vasp-banner" class="vasp-banner">
+    <div class="vasp-banner-inner">
+
+      <!-- Carousel track -->
+      <div class="vasp-carousel" id="vasp-carousel" aria-live="polite">
+        <div class="vasp-track" id="vasp-track">
+
+        <!-- Slide 1: VAS Provider -->
+        <div class="vasp-slide">
+          <div class="vasp-banner-left">
+            <div class="vasp-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+              </svg>
+              <span>Official VAS Provider</span>
+            </div>
+            <span class="vasp-headline">Officially recognised as an <span class="vasp-amazon">Amazon AFP</span> <strong>Value Added Service (VAS) Provider</strong></span>
+          </div>
+          <div class="vasp-banner-right">
+            <a href="/vas-provider" class="vasp-learn-more" aria-label="Learn more about FleetYes as an Amazon AFP VAS Provider">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide 2: AFF Event -->
+        <div class="vasp-slide">
+          <div class="vasp-banner-left">
+            <div class="vasp-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span>AFF Event 2026</span>
+            </div>
+            <span class="vasp-headline">Join us at the <strong>AFF Event 2026</strong> <span class="vasp-event-date">Rome · May 26–28</span></span>
+          </div>
+          <div class="vasp-banner-right">
+            <a href="/aff-event" class="vasp-learn-more" aria-label="Learn more about the AFF Event 2026">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        </div><!-- /vasp-track -->
+      </div><!-- /vasp-carousel -->
+
+      <!-- Close -->
+      <button class="vasp-close" id="vasp-close-btn" aria-label="Close banner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+  <!-- /VASP Amazon AFP Banner -->
+  <script>
+    (function () {
+      var b = document.getElementById('vasp-banner');
+      if (b) {
+        var h = b.getBoundingClientRect().height || 44;
+        document.documentElement.style.setProperty('--vasp-banner-height', h + 'px');
+      }
+    })();
+  </script>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#keyfeatures">Key Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main" id="main-content" role="main">
+    <!-- Hero Section -->
+    <section id="home" class="hero section dark-background" aria-labelledby="hero-heading">
+      <img src="assets/img/truck_img.jpg" alt="Fleet vehicles" loading="lazy" />
+      <div class="container">
+        <div class="row gy-4 d-flex justify-content-center">
+          <div class="col-xl-9 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+            <h1 id="hero-heading" class="text-center mb-3">Effortless Solutions for Streamlined Transport Management</h1>
+
+            <div class="flex-column flex-md-row d-flex justify-content-center gap-4 mt-md-5 mt-xl-3">
+              <div class="col-12 col-md-6 card--hero">
+                <h3 class="card__title">Fleet Management Dashboard</h3>
+                <p class="card__description">Track vehicles, monitor fuel usage, manage driver schedules, and ensure regulatory compliance from one central dashboard.</p>
+                <a href="https://app.fleetyes.com" target="_blank" rel="noopener noreferrer" class="btn btn-light w-100 mb-3">
+                  <i class="bi bi-box-arrow-in-right me-2"></i> FleetYes App Login
+                </a>
+                <a href="https://app.fleetyes.com/onboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light w-100">
+                  <i class="bi bi-person-plus me-2"></i> FleetYes App Register
+                </a>
+              </div>
+
+              <div class="col-12 col-md-6 card--hero">
+                <h3 class="card__title">Amazon Freight Partners</h3>
+                <p class="card__description">Easily manage freight deliveries and prepare your data for seamless use within Amazon's logistics platform to boost your business's performance.</p>
+                <a href="https://afp.fleetyes.com" target="_blank" rel="noopener noreferrer" class="btn btn-light w-100 mb-3">
+                  <i class="bi bi-truck me-2"></i> Amazon Freight Partners Login
+                </a>
+                <a href="https://afp.fleetyes.com/onboard" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light w-100">
+                  <i class="bi bi-person-plus me-2"></i> Amazon Freight Partners Register
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/fleetbase_about_img.png" class="img-fluid rounded" alt="FleetYes platform interface" loading="lazy" />
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="px-xl-5">
+              <h2 id="about-heading">About Us</h2>
+              <p>Our mission is to empower logistics and distribution businesses with flexible transport management solutions. By providing comprehensive functionality, we help boost efficiency, reduce costs, and enhance customer satisfaction. With a commitment to excellence, we deliver tools designed to meet the evolving needs of the transport industry.</p>
+              <a href="#contact" class="btn btn--outline">
+                <span>Book Demo</span>
+                <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="keyfeatures" class="features section light-background" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2 id="features-heading">Key Features</h2>
+          <p>Everything you need to manage logistics operations</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card" style="background-image: url('assets/img/fleetbase_transport-3.jpeg');">
+              <div class="feature-card__content">
+                <i class="las la-desktop feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Operations Console</h3>
+                <p class="feature-card__description">Full console to manage all of your packages and custom systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="150">
+            <div class="feature-card" style="background-image: url('assets/img/fleetbase_operation_Section-2.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-shipping-fast feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">TMS</h3>
+                <p class="feature-card__description">End to end transport management system for logistics operations management and overview.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card" style="background-image: url('assets/img/feature-1.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-user-tie feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Driver App</h3>
+                <p class="feature-card__description">Open source driver app integrated into your TMS. Drivers can manage jobs, tracking, and electronic POD.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="250">
+            <div class="feature-card" style="background-image: url('assets/img/feature-2.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-code feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Developer API</h3>
+                <p class="feature-card__description">Easy to use developer console which provides API usage metrics, and never miss a beat with event and request logs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card" style="background-image: url('assets/img/fleetbase_operation_Section.jpeg');">
+              <div class="feature-card__content">
+                <i class="las la-truck feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Fleet Management</h3>
+                <p class="feature-card__description">Manage all of your assets in one centralised location. Quickly assign assets to custom zones, service areas, and orders.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="350">
+            <div class="feature-card" style="background-image: url('assets/img/integrations.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-plug feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Integrations</h3>
+                <p class="feature-card__description">Extensive list of integrations to get you started quickly. All the way from Lala Move to Shopify. Easy to integrate API.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card" style="background-image: url('assets/img/feature-3.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-gas-pump feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Fuel Tracking</h3>
+                <p class="feature-card__description">Monitor fuel consumption and track fuel expenses effectively.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="450">
+            <div class="feature-card" style="background-image: url('assets/img/parking.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-parking feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Parking Monitoring</h3>
+                <p class="feature-card__description">Keep track of parking spaces and monitor parking expenses in real-time.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-card" style="background-image: url('assets/img/toll.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-road feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Toll Expense Record</h3>
+                <p class="feature-card__description">Record and manage toll expenses efficiently.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="550">
+            <div class="feature-card" style="background-image: url('assets/img/maintenance.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-exclamation-circle feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Vehicle Maintenance</h3>
+                <p class="feature-card__description">Track and resolve vehicle issues for seamless operations.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-card" style="background-image: url('assets/img/fleetbase_transport-2.jpeg');">
+              <div class="feature-card__content">
+                <i class="las la-cogs feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Customisable</h3>
+                <p class="feature-card__description">Adapt this open source solution to fit your specific business needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="650">
+            <div class="feature-card" style="background-image: url('assets/img/feature-4.jpg');">
+              <div class="feature-card__content">
+                <i class="las la-language feature-card__icon" aria-hidden="true"></i>
+                <h3 class="feature-card__title">Multi-lingual</h3>
+                <p class="feature-card__description">Support for multiple languages to cater to a global audience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section dark-background" aria-labelledby="pricing-heading">
+      <div class="container">
+        <h2 id="pricing-heading" class="pricing__title text-white text-center mb-5" data-aos="fade-up">Competitive prices to increase driver adoption</h2>
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <div class="pricing__card" data-aos="zoom-out">
+              <p class="pricing__lead text-white">From <span class="pricing__amount">£14.99</span> per driver a month</p>
+
+              <ul class="pricing__features">
+                <li class="pricing__feature">Transport Management System</li>
+                <li class="pricing__feature">Driver App on iOS & Android</li>
+                <li class="pricing__feature">REST API Support for Integration</li>
+                <li class="pricing__feature">End to End Encryption</li>
+              </ul>
+
+              <div class="text-center">
+                <a href="#contact" class="btn btn-light mt-2">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2 id="testimonials-heading">What Our Clients Say: Stories That Inspire Confidence</h2>
+        </div>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": { "delay": 5000 },
+                "slidesPerView": "auto",
+                "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+              }
+            </script>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <h3 class="testimonial-item__name">Hitesh Kanakia</h3>
+                  <h4 class="testimonial-item__role">MD, Sterling Freights</h4>
+                  <p class="testimonial-item__quote">
+                    <i class="bi bi-quote quote-icon-left" aria-hidden="true"></i>
+                    "FleetYes has transformed how we manage logistics. Our delivery times are more reliable than ever, and customer satisfaction has skyrocketed!"
+                    <i class="bi bi-quote quote-icon-right" aria-hidden="true"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <h3 class="testimonial-item__name">Mark B</h3>
+                  <h4 class="testimonial-item__role">Logistics Director, Hema Holding</h4>
+                  <p class="testimonial-item__quote">
+                    <i class="bi bi-quote quote-icon-left" aria-hidden="true"></i>
+                    "The real-time tracking feature is a game changer. Our team feels empowered, and our clients appreciate the transparency."
+                    <i class="bi bi-quote quote-icon-right" aria-hidden="true"></i>
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <h3 class="testimonial-item__name">David P</h3>
+                  <h4 class="testimonial-item__role">CTO, TapTapMove</h4>
+                  <p class="testimonial-item__quote">
+                    <i class="bi bi-quote quote-icon-left" aria-hidden="true"></i>
+                    "FleetYes helped us streamline our operations. I can now focus on growing my business instead of worrying about logistics."
+                    <i class="bi bi-quote quote-icon-right" aria-hidden="true"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section light-background" aria-labelledby="contact-heading">
+      <!-- Section Title -->
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title row flex justify-content-center" data-aos="fade-up">
+          <h2 id="contact-heading">Contact Us</h2>
+          <p class="text-center col-7">
+            If you're interested in collaborating, please provide your
+            information, and we will contact you soon. We look forward to
+            connecting with you.
+          </p>
+        </div>
+
+        <div class="row gy-4 flex justify-content-center">
+          <div class="col-lg-7">
+            <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200"
+              aria-label="Contact form">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <label for="first-name" class="pb-2">First Name</label>
+                  <input type="text" name="first-name" id="first-name" class="form-control" required=""
+                    aria-required="true" aria-label="First Name" />
+                </div>
+                <div class="col-md-6">
+                  <label for="last-name" class="pb-2">Last Name</label>
+                  <input type="text" name="last-name" id="last-name" class="form-control" required=""
+                    aria-required="true" aria-label="Last Name" />
+                </div>
+
+                <div class="col-md-12">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required=""
+                    aria-required="true" aria-label="Your Email" />
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""
+                    aria-required="true" aria-label="Message"></textarea>
+                </div>
+
+                <!-- <div class="col-md-12">
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAADAXF6RcnPhp25XQ" data-theme="light"></div>
+                </div> -->
+
+                <div class="col-md-12 text-center">
+                  <div class="loading" aria-live="polite">Loading</div>
+                  <div class="error-message" aria-live="polite"></div>
+                  <div class="sent-message" aria-live="polite">
+                    Your message has been sent. Thank you!
+                  </div>
+
+                  <button type="submit" aria-label="Send Message">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- End Contact Form -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer" role="contentinfo">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer__about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes logo" />
+            <span class="sitename">FleetYes</span>
+          </a>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <address class="footer__address">
+            Suite RA01<br />
+            195–197 Wood Street<br />
+            London E17 3NU<br />
+            United Kingdom
+          </address>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p><strong>Email:</strong> <a href="mailto:sales@fleetyes.com">sales@fleetyes.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center footer__links">
+          <a href="#">Privacy Policy</a> | <a href="/extension-privacy">Extension Privacy</a> | <a href="#">Cookie Policy</a> | <a href="#">Terms and Conditions</a>
+        </div>
+
+        <div class="col-12 text-center footer__copyright">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Cookie Consent -->
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({
+        "notice_banner_type": "simple",
+        "consent_type": "express",
+        "palette": "dark",
+        "language": "en",
+        "page_load_consent_levels": ["strictly-necessary"],
+        "notice_banner_reject_button_hide": false,
+        "preferences_center_close_button_hide": false,
+        "page_refresh_confirmation_buttons": false,
+        "website_name": "FleetYes"
+      });
+    });
+  </script>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- VASP Banner Script -->
+  <script>
+    (function () {
+      var banner = document.getElementById('vasp-banner');
+      var carousel = document.getElementById('vasp-carousel');
+      var track = document.getElementById('vasp-track');
+      var closeBtn = document.getElementById('vasp-close-btn');
+      var slides = track ? track.querySelectorAll('.vasp-slide') : [];
+      var total = slides.length;
+      var current = 0;
+      var timer = null;
+
+      function setSlideWidths() {
+        if (!carousel || !track) return;
+        var w = carousel.offsetWidth;
+        for (var i = 0; i < slides.length; i++) {
+          slides[i].style.width = w + 'px';
+        }
+      }
+
+      function goTo(index) {
+        if (!carousel || !track) return;
+        current = ((index % total) + total) % total;
+        var w = carousel.offsetWidth;
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      }
+
+      function next() { goTo(current + 1); }
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto() { clearInterval(timer); }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          stopAuto();
+          banner.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+          banner.style.opacity = '0';
+          banner.style.maxHeight = '0';
+          setTimeout(function () {
+            banner.style.display = 'none';
+            document.documentElement.style.setProperty('--vasp-banner-height', '0px');
+          }, 350);
+        });
+      }
+
+      if (banner) {
+        banner.addEventListener('mouseenter', stopAuto);
+        banner.addEventListener('mouseleave', startAuto);
+      }
+
+      window.addEventListener('resize', function () {
+        setSlideWidths();
+        goTo(current);
+      });
+
+      setSlideWidths();
+      startAuto();
+    })();
+  </script>
+
+  <!-- Header Scroll Effect -->
+  <script>
+    var header = document.getElementById('header');
+    var scrollThreshold = 50;
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > scrollThreshold) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    var scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('active');
+      } else {
+        scrollTopBtn.classList.remove('active');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var navToggle = document.querySelector('.mobile-nav-toggle');
+    var navmenu = document.getElementById('navmenu');
+    if (navToggle) {
+      navToggle.addEventListener('click', function () {
+        navmenu.classList.toggle('active');
+      });
+    }
+
+    var navLinks = document.querySelectorAll('.navmenu a');
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        navmenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
