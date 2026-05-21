@@ -1,0 +1,138 @@
+---
+title: Organisation Settings & Permissions
+description: Manage users, control access by role, and maintain audit logs for compliance and accountability.
+---
+
+# Organisation Settings & Permissions
+
+## Key Benefits
+
+- **Eliminate data security risks with granular role-based access control—each person sees only what they need**
+  Dispatchers see trips and drivers. Finance sees only fuel and expenses. Drivers see only their own assignments. Zero sensitive data leakage. Compliance proven.
+
+- **Prevent costly data errors and fraud through role-based edit restrictions and approval workflows**
+  Only managers approve leave. Only finance approves expenses. Only admins delete data. Segregation of duties prevents mistakes and fraud.
+
+- **Pass regulatory audits instantly with complete, unchangeable audit trail of every data change**
+  Trip modified? Expense approved? Leave denied? Every change logged with user ID, timestamp, old/new values, and reason. DVSA inspection? Audit ready immediately.
+
+- **Scale to 500+ users across 20 locations with consistent governance—no chaos, no exceptions**
+  Define role templates once (dispatcher, manager, technician, finance). Apply to new depots automatically. Policy consistency maintained as you grow.
+
+- **Cut new hire onboarding from days to hours with pre-built role templates and instant access**
+  New dispatcher hired? Assign "dispatcher" role. Instant access to trips and drivers. No manual permission configuration. Ready to work on day one.
+
+- **Reduce user management overhead by 80% through bulk import and single sign-on**
+  Bulk-import users from Active Directory or HR system. SSO means no password resets. Users log in with company credentials. Admin overhead eliminated.
+
+- **Operate independent franchises with complete data separation while maintaining HQ visibility**
+  Each franchise is separate organisation with independent data. HQ sees aggregate metrics and compliance rolls-up. No cross-franchise data contamination. Perfect isolation.
+
+- **Detect and prevent unauthorised access through login tracking and automatic session timeouts**
+  See who logged in, when, and from which device. Automatic logout after inactivity. Suspicious login patterns flagged. Data exposure prevented before it happens.
+
+---
+
+## How It Works
+
+1. **Create roles and define permissions** — Admin defines roles (dispatcher, driver, manager, technician). Assigns permissions per role.
+
+2. **Assign users to roles** — New user created. Assigned to role. Automatic permission grant. User logs in immediately.
+
+3. **Monitor activity** — Admin reviews audit logs. Sees who changed what. Can trace any data change to user and timestamp.
+
+4. **Update permissions as needed** — Role responsibilities change? Update role definition. Automatically applied to all users in that role.
+
+---
+
+## Core Capabilities
+
+- **Role-based access control (RBAC)** — Pre-built roles (admin, manager, dispatcher, driver, technician, finance). Custom roles supported.
+
+- **Granular permissions** — Fine-grained control over read, edit, delete, and approve actions. Per feature and per data type.
+
+- **Audit logging** — Every data change logged: user ID, timestamp, feature, old value, new value. 12-month audit history retained.
+
+- **Bulk user import** — Import users from CSV or directory (Active Directory, Google Workspace). Automatic role assignment and provisioning.
+
+- **Single sign-on (SSO)** — SAML and OAuth integration. Users sign in with company credentials. No password management in FleetYes.
+
+- **Session management and timeout** — Automatic logout after inactivity. Force logout on manual request. Prevents unauthorized access from shared devices.
+
+- **Multi-organisation support** — Separate data silos per organisation. Franchise or group operator? Each entity sees only its own data.
+
+- **API key management** — Third-party integrations authenticate via API keys. Keys scoped to specific permissions. Rotate keys regularly for security.
+
+---
+
+## Use Cases
+
+- **Dispatch centre management** — Dispatch team can create and assign trips. Managers can view all trips and make changes. Drivers see only assigned trips. Clear hierarchy.
+
+- **Franchise network governance** — Each franchise is independent organisation. Franchisee sees own data only. HQ admin sees all franchises. Data governance enforced.
+
+- **Financial controls and segregation of duties** — Dispatcher creates expense claim. Finance reviews and approves. Driver can't approve own claim. Prevents fraud.
+
+- **Compliance audit preparation** — Regulator requests audit trail of all changes. Export complete audit log. Every change documented. Demonstrates governance.
+
+- **Shift handover and accountability** — Night shift manager logs in, handles incidents. Day manager reviews night's activity in audit log. Understands what happened.
+
+- **Third-party integration security** — Integrate with customer portal. Create API key scoped to read-only trip status. Customer can't modify data or see other customers.
+
+- **New depot launch** — New depot added to network. Assign depot manager role. Bulk import local staff. Automatic permission grant. New depot operational immediately.
+
+- **Data access incident investigation** — User suspects data was changed without authorization. Review audit log. Identify when change was made and by whom. Reconstruct event.
+
+---
+
+## Integration & Compatibility
+
+- **Single sign-on (SSO)** — SAML 2.0 and OAuth 2.0 support. Integration with Okta, Azure AD, Google Workspace, and other identity providers.
+
+- **Directory services** — Bulk user import from Active Directory, LDAP, or Google Workspace. Automatic role assignment based on directory attributes.
+
+- **Multi-tenancy framework** — Support for multiple organisations with separate data silos. Used by franchise networks and group operators.
+
+- **API key management** — Third-party integrations use API keys scoped to specific permissions. Secure integration without sharing passwords.
+
+- **Audit log export** — Export audit logs to compliance systems or data warehouses. Support forensics and compliance investigations.
+
+- **Workflow approvals** — Approval workflows leverage permissions. Expense approvals respect role hierarchy. Expenses routed to appropriate approver.
+
+- **Mobile app access control** — Same permissions apply on mobile app. Users see same data and capabilities on mobile and web.
+
+- **Incident and security response** — Audit logs accessible during security incident investigation. Identify unauthorized access or data changes quickly.
+
+---
+
+## Why Choose This Feature
+
+**Data security risks and operational chaos multiply without proper access control.** Dispatchers see sensitive driver documents they shouldn't. Finance staff can delete trip records. Multiple people make changes and no one knows who did what. Fraud happens silently. Regulatory audits fail.
+
+FleetYes's organisation settings and permissions **lock down access while keeping operations smooth.** Role-based access means each person sees exactly what they need. Approval workflows enforce segregation of duties. Every change is logged with a timestamp and user ID. Audits are pass-ready instantly.
+
+The result is immediate: **data security proven, compliance audits pass, fraud prevented, and zero "why didn't we see that coming?" moments.** Your operation is governed, protected, and audit-ready.
+
+---
+
+## Visual Overview
+
+Organisation settings and permissions give you complete control and visibility over who can access what data and what they can do with it. The role management dashboard lists all roles (admin, manager, dispatcher, driver, technician, finance), and click any role to see exactly which permissions are assigned (read, edit, delete, approve) for each feature. Below that is a user management grid showing all users with their assigned role(s). Bulk actions let you change roles for multiple users at once (e.g., promote 5 dispatchers to manager), and you can search, sort, and filter by role, department, or status.
+
+The permission editor gives you granular control over what each role can do. A dispatcher can create and assign trips but cannot delete them. Finance can approve expenses but cannot modify trip data. Custom roles are supported for roles outside the standard templates. An audit log viewer shows the complete change history: who changed what, when, and from which device. Filter by user, feature, date, or action type (create, edit, delete, approve), and export the log for compliance audits.
+
+For enterprise organisations, SSO and directory integration connects to Okta, Azure AD, or Google Workspace so users sign in with their company credentials—no separate FleetYes password to remember or reset. Roles are automatically assigned based on directory attributes (department, job title). API key management lets you create keys for third-party integrations, scoped to specific permissions (e.g., read-only trip data), and rotate them regularly for security. Session and login monitoring shows who's logged in, which device they're using, and from which location, and you can force logout if needed or set automatic timeout after inactivity. For scaling, bulk user import lets you import users from a CSV or directory and automatically assign roles based on department or job title, provisioning dozens of users in seconds.
+
+---
+
+## Getting Started
+
+Ready to secure your data and prove regulatory compliance?
+
+**Book a Demo** — See role-based access control, audit logs, and SSO integration in action.
+
+**Get Started Today** — Define roles for your team and start controlling access today.
+
+**View Pricing** — Permissions and security features included in all plans.
+
+---

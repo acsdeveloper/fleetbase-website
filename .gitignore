@@ -21,10 +21,10 @@ vendor/
 Thumbs.db
 
 # Ignore feature markdown source files
-features-md/
+
 
 # Ignore feature page generation script
-generate-feature-pages.py
+
 
 .env
 new-index.html
