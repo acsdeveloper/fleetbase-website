@@ -51,4 +51,4 @@ FleetYes offers innovative transport management software to streamline logistics
 
 ## License
 
-&copy; 2025 FleetYes. All rights reserved.
+&copy; 2026 FleetYes. All rights reserved.
