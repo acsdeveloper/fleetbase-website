@@ -69,19 +69,44 @@ try {
     $mail->addAddress('developer@agilecyber.com');           // Add a recipient
     // $mail->addReplyTo('info@example.com', 'Information');
 
+    // Build email content. Fields are optional — only included if present.
+    $source = $input['source'] ?? 'contact';
+
+    $fields = [
+        'Full Name'    => $input['fullName']     ?? '',
+        'First Name'   => $input['firstName']    ?? '',
+        'Last Name'    => $input['lastName']     ?? '',
+        'Company'      => $input['companyName']  ?? '',
+        'Email'        => $input['email']        ?? '',
+        'Phone'        => $input['phone']        ?? '',
+        'Fleet Size'   => $input['fleetSize']    ?? '',
+        'Role'         => $input['role']         ?? '',
+    ];
+
+    $htmlRows = '';
+    $textRows = '';
+    foreach ($fields as $label => $value) {
+        if ($value === '') continue;
+        $safe = htmlspecialchars($value);
+        $htmlRows .= '<b>' . $label . ':</b> ' . $safe . '<br>';
+        $textRows .= $label . ': ' . $safe . "\n";
+    }
+
+    $message = $input['message'] ?? '';
+
     // Content
     $mail->isHTML(true);                                        // Set email format to HTML
-    $mail->Subject = 'New Contact Form Submission';
-    $mail->Body    = 'You have received a new message from your website contact form.<br><br>' .
-                     '<b>First Name:</b> ' . htmlspecialchars($input['firstName'] ?? '') . '<br>' .
-                     '<b>Last Name:</b> '  . htmlspecialchars($input['lastName']  ?? '') . '<br>' .
-                     '<b>Email:</b> '      . htmlspecialchars($input['email']     ?? '') . '<br>' .
-                     '<b>Message:</b> '    . nl2br(htmlspecialchars($input['message'] ?? '')) . '<br>';
-    $mail->AltBody = 'You have received a new message from your website contact form.' . "\n\n" .
-                     'First Name: ' . htmlspecialchars($input['firstName'] ?? '') . "\n" .
-                     'Last Name: '  . htmlspecialchars($input['lastName']  ?? '') . "\n" .
-                     'Email: '      . htmlspecialchars($input['email']     ?? '') . "\n" .
-                     'Message: '    . htmlspecialchars($input['message']   ?? '');
+    $mail->Subject = $source === 'aff'
+        ? 'New AFF Event 2026 Meeting Request'
+        : 'New Contact Form Submission';
+    $intro = $source === 'aff'
+        ? 'You have received a new AFF Event 2026 meeting request from your website.'
+        : 'You have received a new message from your website contact form.';
+
+    $mail->Body    = $intro . '<br><br>' . $htmlRows .
+                     '<b>Message:</b> ' . nl2br(htmlspecialchars($message)) . '<br>';
+    $mail->AltBody = $intro . "\n\n" . $textRows .
+                     'Message: ' . htmlspecialchars($message);
 
     $mail->send();
 
