@@ -57,6 +57,9 @@ jobs:
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }}" \
             . "${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:$RELEASE_DIR/"
 
+          # Install PHP dependencies on the server for this release
+          $SSH "cd $RELEASE_DIR && composer install --no-dev --optimize-autoloader"
+
           # Atomically swap symlink, then prune old releases (keep last 3)
           $SSH "
             ln -sfn $RELEASE_DIR ${CURRENT}_new
