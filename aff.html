@@ -14,7 +14,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
 
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -33,10 +33,36 @@
       --aff-dark:       #0e1b16;
       --aff-border:     #e4e8e6;
       --aff-bg-soft:    #f5f6f5;
+      --aff-body-font:  "Montserrat", "Open Sans", sans-serif;
     }
 
-    /* AFF page uses Marcellus across body copy as well as headings */
-    body.aff-page { font-family: var(--heading-font); }
+    /* AFF page: Montserrat for body copy, Marcellus retained for headings */
+    body.aff-page {
+      font-family: var(--aff-body-font);
+      font-weight: 400;
+    }
+    body.aff-page p,
+    body.aff-page li,
+    body.aff-page label,
+    body.aff-page input,
+    body.aff-page select,
+    body.aff-page textarea,
+    body.aff-page .aff-hero-desc,
+    body.aff-page .aff-hero-meta-item,
+    body.aff-page .aff-hero-badge,
+    body.aff-page .aff-eyebrow,
+    body.aff-page .aff-info-label,
+    body.aff-page .aff-info-desc,
+    body.aff-page .aff-gift-eyebrow,
+    body.aff-page .aff-checklist li,
+    body.aff-page .aff-cta-strip .cta-text,
+    body.aff-page .btn-aff-primary,
+    body.aff-page .btn-aff-outline,
+    body.aff-page .btn-aff-light-outline,
+    body.aff-page .btn-aff-submit,
+    body.aff-page .aff-book-demo {
+      font-family: var(--aff-body-font);
+    }
 
     /* No top padding — hero sits behind transparent header */
     .aff-page-wrap { padding-top: 0; }
