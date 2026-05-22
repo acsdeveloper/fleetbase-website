@@ -26,20 +26,40 @@ jobs:
               sed -i "s@</head>@${GA_SNIPPET}</head>@g" "$file"
             fi
           done
-      - name: Copy files to server via SCP
-        uses: appleboy/scp-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME || 'ubuntu' }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT || 22 }}
-          source: "."
-          target: "/var/www/html/fleetyes.com/htdocs"
-          overwrite: true
-          rm: true
-          exclude: |
-            .git*
-            .github*
-            node_modules
-            **/.env
-            .env
+      - name: Deploy atomically via rsync + symlink swap
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+          RELEASE=$(date +%Y%m%d%H%M%S)
+          RELEASES_BASE="/var/www/html/fleetyes.com/releases"
+          RELEASE_DIR="$RELEASES_BASE/$RELEASE"
+          CURRENT="/var/www/html/fleetyes.com/htdocs"
+          SSH="ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}"
+
+          # Prepare releases directory; migrate existing htdocs on first run
+          $SSH "
+            mkdir -p $RELEASES_BASE
+            if [ -d '$CURRENT' ] && [ ! -L '$CURRENT' ]; then
+              mv '$CURRENT' '$RELEASES_BASE/pre_atomic'
+            fi
+            mkdir -p $RELEASE_DIR
+          "
+
+          # Sync files into the new release directory (no --delete here)
+          rsync -avz \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='.env' \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }}" \
+            . "${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:$RELEASE_DIR/"
+
+          # Atomically swap symlink, then prune old releases (keep last 3)
+          $SSH "
+            ln -sfn $RELEASE_DIR ${CURRENT}_new
+            mv -T ${CURRENT}_new $CURRENT
+            ls -1dt $RELEASES_BASE/*/ 2>/dev/null | tail -n +4 | xargs -r rm -rf
+          "
