@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AFF Event 2026 – FleetYes</title>
+  <meta name="description" content="Join FleetYes, an officially recognised Amazon AFP Value Added Service (VAS) Provider, at the AFF Event 2026 in Rome, Italy. 26-28 May 2026." />
+
+  <!-- Favicons -->
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --aff-green:      #2f7a4d;
+      --aff-green-dk:   #1f5a36;
+      --aff-green-lt:   #3e9560;
+      --aff-green-pale: #eaf4ee;
+      --aff-dark:       #0e1b16;
+      --aff-text:       #2c3a33;
+      --aff-muted:      #6b7872;
+      --aff-border:     #e4e8e6;
+      --aff-bg-soft:    #f5f6f5;
+    }
+
+    body.aff-page {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--aff-text);
+    }
+
+    /* No top padding — hero sits behind transparent header */
+    .aff-page-wrap { padding-top: 0; }
+
+    /* ── Header: transparent over dark hero, white on scroll ── */
+    .aff-page .header {
+      --background-color: rgba(255, 255, 255, 0);
+      --heading-color: #ffffff;
+      --nav-color: #ffffff;
+      transition: background-color .3s ease, box-shadow .3s ease;
+    }
+    .aff-page .header .logo img {
+      filter: brightness(0) invert(1);
+      transition: filter .3s ease;
+    }
+    .aff-page .navmenu a,
+    .aff-page .navmenu a:focus { color: #ffffff; }
+
+    /* On scroll → white header */
+    .aff-page.scrolled .header {
+      --background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+    .aff-page.scrolled .header .logo img { filter: none; }
+    .aff-page.scrolled .header .logo h1 { color: var(--accent-color); }
+    .aff-page.scrolled .navmenu a { color: var(--accent-color); }
+    .aff-page.scrolled .navmenu a:hover { color: var(--aff-green); }
+
+    .aff-book-demo {
+      display: inline-flex;
+      align-items: center;
+      background: var(--aff-dark);
+      color: #fff !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-left: 18px;
+      transition: background .2s, color .2s, border .2s;
+      border: 1.5px solid transparent;
+    }
+    .aff-book-demo:hover { background: var(--aff-green); }
+    /* On transparent header, give the button a subtle outline */
+    .aff-page:not(.scrolled) .aff-book-demo {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.45);
+    }
+    .aff-page:not(.scrolled) .aff-book-demo:hover {
+      background: #ffffff;
+      color: var(--aff-dark) !important;
+      border-color: #ffffff;
+    }
+
+    /* ── Hero ───────────────────────────────────────── */
+    .aff-hero {
+      position: relative;
+      background: var(--aff-dark);
+      color: #fff;
+      overflow: hidden;
+      min-height: 480px;
+    }
+    .aff-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/img/aff-hero-banner.png');
+      background-size: cover;
+      background-position: center right;
+      opacity: 0.55;
+    }
+    .aff-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(14,27,22,0.95) 0%, rgba(14,27,22,0.85) 40%, rgba(14,27,22,0.4) 100%);
+    }
+    .aff-hero .container { position: relative; z-index: 2; }
+    .aff-hero-inner {
+      padding: 150px 0 90px;
+      position: relative;
+    }
+    .aff-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 122, 77, 0.25);
+      border: 1px solid rgba(80, 170, 110, 0.4);
+      color: #b9e6c8;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+    }
+    .aff-hero h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 54px;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    .aff-hero h1 .accent {
+      display: block;
+      color: var(--aff-green-lt);
+      font-size: 44px;
+    }
+    .aff-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin: 28px 0 22px;
+    }
+    .aff-hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #d4dad7;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .aff-hero-meta-item svg { color: var(--aff-green-lt); flex-shrink: 0; }
+    .aff-hero-meta-item .meta-icon-wrap {
+      width: 30px; height: 30px;
+      border-radius: 6px;
+      background: rgba(80, 170, 110, 0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .aff-hero-desc {
+      max-width: 460px;
+      color: #cbd2cf;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .aff-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-aff-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--aff-green);
+      color: #fff !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-aff-primary:hover {
+      background: var(--aff-green-dk);
+      transform: translateY(-1px);
+    }
+    .btn-aff-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #fff !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-aff-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.85);
+    }
+
+    .aff-hero-watermark {
+      position: absolute;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .aff-hero-watermark .aff-wm-title {
+      font-family: 'Marcellus', serif;
+      font-size: 84px;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.92);
+      line-height: 1;
+    }
+    .aff-hero-watermark .aff-wm-sub {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+    }
+    .aff-hero-watermark .aff-wm-year {
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.1em;
+      margin-top: 2px;
+    }
+
+    /* ── About / Event Info ─────────────────────────── */
+    .aff-about {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .aff-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--aff-green);
+      margin-bottom: 16px;
+    }
+    .aff-about h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 36px;
+      line-height: 1.2;
+      color: var(--aff-dark);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .aff-about h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--aff-green);
+      margin-top: 18px;
+    }
+    .aff-about p {
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: var(--aff-muted);
+      margin-bottom: 16px;
+    }
+
+    .aff-info-card {
+      background: #fff;
+      border: 1px solid var(--aff-border);
+      border-radius: 14px;
+      padding: 32px 30px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .aff-info-row {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--aff-border);
+    }
+    .aff-info-row:first-child { padding-top: 0; }
+    .aff-info-row:last-child { padding-bottom: 0; border-bottom: 0; }
+
+    .aff-info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--aff-bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--aff-muted);
+    }
+    .aff-info-icon svg { width: 22px; height: 22px; }
+    .aff-info-body { flex: 1; min-width: 0; }
+    .aff-info-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--aff-green);
+      margin-bottom: 4px;
+    }
+    .aff-info-title {
+      font-family: 'Marcellus', serif;
+      font-size: 19px;
+      color: var(--aff-dark);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .aff-info-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--aff-muted);
+      margin: 0;
+    }
+
+    /* ── Claim Your Gift ───────────────────────────── */
+    .aff-gift {
+      padding: 80px 0;
+      background: var(--aff-bg-soft);
+    }
+    .aff-gift-card {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 56px 48px;
+      text-align: center;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--aff-green);
+      position: relative;
+    }
+    .aff-gift-emoji {
+      font-size: 56px;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .aff-gift-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--aff-green);
+      margin-bottom: 14px;
+    }
+    .aff-gift-card h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 30px;
+      color: var(--aff-dark);
+      line-height: 1.3;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 18px;
+    }
+    .aff-gift-card h2::after {
+      content: '';
+      display: block;
+      width: 46px;
+      height: 3px;
+      background: var(--aff-green);
+      margin: 18px auto 0;
+    }
+    .aff-gift-card p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--aff-muted);
+      margin-bottom: 16px;
+    }
+    .aff-gift-card p:last-child { margin-bottom: 0; }
+
+    /* ── Planning To Attend ─────────────────────────── */
+    .aff-planning {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .aff-planning-img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border-radius: 14px;
+      object-fit: cover;
+      display: block;
+    }
+    .aff-planning-card {
+      background: #fff;
+      border: 1px solid var(--aff-border);
+      border-radius: 14px;
+      padding: 40px 38px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .aff-planning-card .aff-eyebrow { color: var(--aff-green); margin-bottom: 14px; }
+    .aff-planning-card h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 28px;
+      color: var(--aff-dark);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    .aff-planning-card p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--aff-muted);
+      margin-bottom: 26px;
+    }
+    .aff-planning-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-aff-light-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--aff-dark) !important;
+      border: 1.5px solid var(--aff-border);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-aff-light-outline:hover {
+      border-color: var(--aff-green);
+      color: var(--aff-green) !important;
+    }
+
+    /* ── Contact / Book ─────────────────────────────── */
+    .aff-contact {
+      padding: 80px 0 90px;
+      background: #fff;
+    }
+    .aff-contact-info h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 32px;
+      color: var(--aff-dark);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .aff-contact-info > p {
+      font-size: 14.5px;
+      color: var(--aff-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .aff-checklist { padding: 0; margin: 0; list-style: none; }
+    .aff-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      font-size: 14px;
+      color: var(--aff-text);
+      line-height: 1.55;
+    }
+    .aff-checklist .check-ico {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--aff-bg-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--aff-text);
+    }
+    .aff-checklist .check-ico svg { width: 16px; height: 16px; }
+
+    .aff-form {
+      background: #fff;
+    }
+    .aff-form .form-group { margin-bottom: 16px; }
+    .aff-form .form-control,
+    .aff-form .form-select {
+      width: 100%;
+      border: 1px solid var(--aff-border);
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--aff-text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .aff-form .form-control::placeholder {
+      color: #98a39d;
+    }
+    .aff-form .form-control:focus,
+    .aff-form .form-select:focus {
+      outline: none;
+      border-color: var(--aff-green);
+      box-shadow: 0 0 0 3px rgba(47,122,77,0.12);
+    }
+    .aff-form textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+    .btn-aff-submit {
+      width: 100%;
+      background: var(--aff-green);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-aff-submit:hover { background: var(--aff-green-dk); }
+
+    /* ── Footer CTA Strip ───────────────────────────── */
+    .aff-cta-strip {
+      background: var(--aff-dark);
+      padding: 26px 30px;
+      border-radius: 14px;
+      margin: 0 auto 60px;
+      max-width: 1140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .aff-cta-strip .cta-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #fff;
+    }
+    .aff-cta-strip .cta-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .aff-cta-strip .cta-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .aff-cta-strip .btn-aff-outline {
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 1199px) {
+      .aff-hero-watermark { display: none; }
+    }
+    @media (max-width: 991px) {
+      .aff-hero h1 { font-size: 42px; }
+      .aff-hero h1 .accent { font-size: 32px; }
+      .aff-hero-inner { padding: 130px 0 70px; }
+      .aff-about, .aff-gift, .aff-planning, .aff-contact { padding: 60px 0; }
+      .aff-about h2,
+      .aff-gift-card h2,
+      .aff-contact-info h2 { font-size: 28px; }
+      .aff-gift-card { padding: 44px 32px; }
+      .aff-planning-img { min-height: 260px; margin-bottom: 24px; }
+      .aff-planning-card { padding: 32px 28px; }
+    }
+    @media (max-width: 767px) {
+      .aff-hero h1 { font-size: 34px; }
+      .aff-hero h1 .accent { font-size: 26px; }
+      .aff-hero-inner { padding: 120px 0 60px; }
+      .aff-hero-meta { gap: 14px; }
+      .aff-hero-desc { font-size: 14px; }
+      .btn-aff-primary, .btn-aff-outline { padding: 11px 20px; font-size: 13px; }
+      .aff-about, .aff-gift, .aff-planning, .aff-contact { padding: 50px 0; }
+      .aff-about h2,
+      .aff-gift-card h2,
+      .aff-contact-info h2,
+      .aff-planning-card h2 { font-size: 24px; }
+      .aff-info-card { padding: 24px 22px; }
+      .aff-info-title { font-size: 17px; }
+      .aff-gift-card { padding: 36px 24px; }
+      .aff-gift-emoji { font-size: 48px; }
+      .aff-cta-strip { padding: 22px 22px; text-align: center; }
+      .aff-cta-strip .cta-text { font-size: 15px; }
+      .aff-book-demo { margin-left: 0; margin-top: 10px; }
+    }
+    @media (max-width: 480px) {
+      .aff-hero h1 { font-size: 28px; }
+      .aff-hero h1 .accent { font-size: 22px; }
+      .aff-hero-actions { flex-direction: column; }
+      .aff-hero-actions a { width: 100%; justify-content: center; }
+      .aff-planning-actions { flex-direction: column; }
+      .aff-planning-actions a { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body class="aff-page" style="--vasp-banner-height: 0px;">
+
+  <!-- ── Site Header ─────────────────────────────── -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li class="dropdown"><a href="/features"><span>Features</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a></li>
+          <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <a href="/#contact" class="aff-book-demo d-none d-md-inline-flex">Book a Demo</a>
+    </div>
+  </header>
+  <!-- /Site Header -->
+
+  <div class="aff-page-wrap">
+
+    <!-- ── Hero ────────────────────────────────────── -->
+    <section class="aff-hero">
+      <div class="container">
+        <div class="aff-hero-inner">
+          <div class="row">
+            <div class="col-lg-7">
+              <span class="aff-hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/></svg>
+                Official Amazon AFP VAS Provider
+              </span>
+              <h1>
+                JOIN US
+                <span class="accent">at the AFF Event 2026</span>
+              </h1>
+              <div class="aff-hero-meta">
+                <div class="aff-hero-meta-item">
+                  <span class="meta-icon-wrap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
+                  26 – 28 May 2026
+                </div>
+                <div class="aff-hero-meta-item">
+                  <span class="meta-icon-wrap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
+                  Fiera di Roma, Rome, Italy
+                </div>
+              </div>
+              <p class="aff-hero-desc">
+                We're very pleased to be exhibiting this year. Stop by our stand to see our platform in action and pick up an exclusive welcome gift from our team.
+               <div class="aff-hero-actions">
+                <a href="#book" class="btn-aff-primary">Speak with Our Team</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="aff-hero-watermark d-none d-xl-block">
+        <div class="aff-wm-title">AFF</div>
+        <div class="aff-wm-sub">Amazon Freight Partner</div>
+        <div class="aff-wm-year">EVENT 2026</div>
+      </div>
+    </section>
+    <!-- /Hero -->
+
+    <!-- ── About the Event ─────────────────────────── -->
+    <section class="aff-about">
+      <div class="container">
+        <div class="row gy-5 align-items-start">
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="aff-eyebrow">About the Event</div>
+            <h2>Connecting with Amazon Freight Partners Across Europe</h2>
+            <p>The AFF Event 2026 is an annual gathering for Amazon Freight Partner operators and the wider ecosystem of technology providers supporting AFP operations.</p>
+            <p>As an officially recognised Amazon AFP Value Added Service (VAS) Provider, <strong>FleetYes</strong> will be attending to connect with transport operators, discuss operational challenges, and demonstrate how our platform helps logistics teams improve visibility, reduce manual coordination, and manage fleet operations more efficiently.</p>
+            <p>Whether you're looking to improve driver compliance, streamline dispatch operations, or gain better operational control across your delivery network, we'd love to meet you at the event.</p>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="aff-info-card">
+
+              <div class="aff-info-row">
+                <div class="aff-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="aff-info-body">
+                  <div class="aff-info-label">What</div>
+                  <div class="aff-info-title">AFF Event 2026</div>
+                  <p class="aff-info-desc">The AFF Event is an annual gathering for Amazon Freight Partner operators and their ecosystem of technology providers.</p>
+                </div>
+              </div>
+
+              <div class="aff-info-row">
+                <div class="aff-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="aff-info-body">
+                  <div class="aff-info-label">When</div>
+                  <div class="aff-info-title">26 – 28 May 2026</div>
+                  <p class="aff-info-desc">An event bringing together Amazon Freight Partners and their technology providers. A great opportunity to connect, learn and explore solutions that support AFP operations.</p>
+                </div>
+              </div>
+
+              <div class="aff-info-row">
+                <div class="aff-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </div>
+                <div class="aff-info-body">
+                  <div class="aff-info-label">Where</div>
+                  <div class="aff-info-title">Fiera di Roma, Hall 4, Rome, Italy</div>
+                  <p class="aff-info-desc">One of Europe's leading exhibition venues, located on the outskirts of Rome with excellent transport links to the city centre and Fiumicino Airport.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /About -->
+
+    <!-- ── Claim Your Gift ─────────────────────────── -->
+    <section class="aff-gift">
+      <div class="container">
+        <div class="aff-gift-card" data-aos="fade-up">
+          <div class="aff-gift-emoji" aria-hidden="true">🎁</div>
+          <div class="aff-gift-eyebrow">Collect Your AFF Giveaway</div>
+          <h2>Stop by the FleetYes Booth for Live Platform Demos and Event Gifts</h2>
+          <p>Stop by the FleetYes booth during AFF Event 2026 to meet our team, explore the platform in action, and receive an exclusive attendee gift.</p>
+          <p>Discover how FleetYes helps Amazon Freight Partners improve fleet visibility, simplify delivery operations, and reduce operational bottlenecks across daily transport workflows.</p>
+        </div>
+      </div>
+    </section>
+    <!-- /Claim Your Gift -->
+
+    <!-- ── Planning to Attend ──────────────────────── -->
+    <section class="aff-planning">
+      <div class="container">
+        <div class="row gy-4 align-items-stretch">
+          <div class="col-lg-6" data-aos="fade-up">
+            <img src="assets/img/meetup-event-stall.jpg" alt="FleetYes team meeting" class="aff-planning-img" />
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="aff-planning-card">
+              <div class="aff-eyebrow">See You at AFF 2026</div>
+              <h2>Explore FleetYes at AFF 2026</h2>
+              <p>If you're attending AFF 2026, schedule time with the FleetYes team to discuss your operational challenges and see how our platform helps logistics operators improve visibility, reduce delays, and manage delivery operations more efficiently.</p>
+              <div class="aff-planning-actions">
+                <a href="/#contact" target="_blank" class="btn-aff-light-outline">Request a Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Planning -->
+
+    <!-- ── Book Time / Contact ─────────────────────── -->
+    <section class="aff-contact" id="book">
+      <div class="container">
+        <div class="row gy-5 align-items-start">
+          <div class="col-lg-5 aff-contact-info" data-aos="fade-up">
+            <div class="aff-eyebrow">Book Time with the FleetYes Team</div>
+            <h2>Let's Connect at AFF Event 2026</h2>
+            <p>Complete the form below and a member of our team will contact you to arrange a meeting during the event.</p>
+            <ul class="aff-checklist">
+              <li>
+                <span class="check-ico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                Meet our team in person and see FleetYes in action
+              </li>
+              <li>
+                <span class="check-ico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </span>
+                Discover how we help AFP operators improve efficiency and drive results
+              </li>
+              <li>
+                <span class="check-ico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                </span>
+                Personalised sessions tailored to your operational needs
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <form id="aff-meeting-form" action="/mail/send/index.php" method="post" class="aff-form" aria-label="AFF 2026 meeting form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" name="full-name" class="form-control" placeholder="Full Name" required aria-label="Full Name" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="company-name" class="form-control" placeholder="Company Name" required aria-label="Company Name" />
+                </div>
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Work Email" required aria-label="Work Email" />
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" name="phone" class="form-control" placeholder="Phone Number" aria-label="Phone Number" />
+                </div>
+                <div class="col-md-6">
+                  <select name="fleet-size" class="form-select" aria-label="Fleet Size" required>
+                    <option value="" disabled selected>Fleet Size</option>
+                    <option value="1-10">1 – 10 vehicles</option>
+                    <option value="11-50">11 – 50 vehicles</option>
+                    <option value="51-200">51 – 200 vehicles</option>
+                    <option value="200+">200+ vehicles</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <select name="role" class="form-select" aria-label="Your Role" required>
+                    <option value="" disabled selected>Your Role</option>
+                    <option value="owner">Owner / Founder</option>
+                    <option value="operations">Operations Manager</option>
+                    <option value="fleet">Fleet Manager</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <textarea name="message" class="form-control" rows="4" placeholder="How can we help you?" aria-label="How can we help you?"></textarea>
+                </div>
+                <div class="col-md-6 col-12">
+                  <button type="submit" class="btn-aff-submit">Let’s Talk Logistics</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Contact -->
+
+    <!-- ── Bottom CTA Strip ────────────────────────── -->
+    <div class="container">
+      <div class="aff-cta-strip" data-aos="fade-up">
+        <div class="cta-left">
+          <div class="cta-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="cta-text">We look forward to meeting you at AFF Event 2026.</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /aff-page-wrap -->
+
+  <!-- ── Footer ──────────────────────────────────── -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>
+  195–197 Wood Street<br>
+  London E17 3NU<br>
+  United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class=" d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="#" id="open_preferences_center">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="#" id="open_preferences_center">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2025 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /Footer -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+    });
+  </script>
+
+</body>
+</html>
