@@ -39,9 +39,11 @@ jobs:
           CURRENT="/var/www/html/fleetyes.com/htdocs"
           SSH="ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}"
 
-          # Prepare releases directory; migrate existing htdocs on first run
+          SHARED="/var/www/html/fleetyes.com/shared"
+
+          # Prepare directories; migrate existing htdocs on first run
           $SSH "
-            mkdir -p $RELEASES_BASE
+            mkdir -p $RELEASES_BASE $SHARED/mail/send
             if [ -d '$CURRENT' ] && [ ! -L '$CURRENT' ]; then
               mv '$CURRENT' '$RELEASES_BASE/pre_atomic'
             fi
@@ -56,6 +58,9 @@ jobs:
             --exclude='.env' \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }}" \
             . "${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:$RELEASE_DIR/"
+
+          # Link shared .env into this release
+          $SSH "ln -sfn $SHARED/mail/send/.env $RELEASE_DIR/mail/send/.env"
 
           # Install PHP dependencies on the server for this release
           $SSH "cd $RELEASE_DIR && composer install --no-dev --optimize-autoloader"
