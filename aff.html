@@ -21,6 +21,9 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet" />
 
@@ -207,7 +210,7 @@
       max-width: 460px;
       color: #cbd2cf;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.7;
       margin-bottom: 32px;
     }
@@ -265,6 +268,7 @@
       font-family: var(--heading-font);
       font-size: 84px;
       letter-spacing: 0.04em;
+      font-weight: 500;
       color: rgba(255,255,255,0.92);
       line-height: 1;
     }
@@ -853,7 +857,7 @@
           </div>
 
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-            <form id="aff-meeting-form" action="/mail/send/index.php" method="post" class="aff-form" aria-label="AFF 2026 meeting form" novalidate>
+            <form id="aff-meeting-form" action="#" method="post" class="aff-form" aria-label="AFF 2026 meeting form" novalidate>
               <div class="row g-3">
                 <div class="col-md-6">
                   <input type="text" name="full-name" class="form-control" placeholder="Full Name" required aria-label="Full Name" />
@@ -887,6 +891,14 @@
                 </div>
                 <div class="col-12">
                   <textarea name="message" class="form-control" rows="4" placeholder="How can we help you?" aria-label="How can we help you?"></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAADAXF6RcnPhp25XQ" data-theme="light"></div>
+                </div>
+                <div class="col-12">
+                  <div class="aff-form-loading" aria-live="polite" style="display:none;">Sending…</div>
+                  <div class="aff-form-error" aria-live="polite" style="display:none;color:#b00020;margin-top:8px;"></div>
+                  <div class="aff-form-sent" aria-live="polite" style="display:none;color:var(--aff-green);margin-top:8px;">Thanks — your request has been sent. We'll be in touch shortly.</div>
                 </div>
                 <div class="col-md-6 col-12">
                   <button type="submit" class="btn-aff-submit">Let’s Talk Logistics</button>
