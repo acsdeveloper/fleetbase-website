@@ -55,6 +55,12 @@
     .aff-page .navmenu a,
     .aff-page .navmenu a:focus { color: #ffffff; }
 
+    /* When mobile menu opens, the panel is white — links need dark text. */
+    body.aff-page.mobile-nav-active .navmenu a,
+    body.aff-page.mobile-nav-active .navmenu a:focus { color: var(--accent-color); }
+    body.aff-page.mobile-nav-active .navmenu a:hover,
+    body.aff-page.mobile-nav-active .navmenu .active { color: var(--aff-green); }
+
     /* On scroll → white header */
     .aff-page.scrolled .header {
       --background-color: #ffffff;
@@ -97,8 +103,11 @@
       background: var(--aff-dark);
       color: #fff;
       overflow: hidden;
-      min-height: 480px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
+    .aff-hero > .container { width: 100%; }
     .aff-hero::before {
       content: '';
       position: absolute;
@@ -116,7 +125,7 @@
     }
     .aff-hero .container { position: relative; z-index: 2; }
     .aff-hero-inner {
-      padding: 150px 0 90px;
+      padding: 120px 0 90px;
       position: relative;
     }
     .aff-hero-badge {
@@ -149,7 +158,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 28px;
-      margin: 28px 0 22px;
+      margin: 22px 0 22px;
     }
     .aff-hero-meta-item {
       display: inline-flex;
@@ -219,7 +228,7 @@
 
     .aff-hero-watermark {
       position: absolute;
-      right: 6%;
+      right: 8%;
       top: 50%;
       transform: translateY(-50%);
       text-align: right;
@@ -585,7 +594,7 @@
     @media (max-width: 991px) {
       .aff-hero h1 { font-size: 42px; }
       .aff-hero h1 .accent { font-size: 32px; }
-      .aff-hero-inner { padding: 130px 0 70px; }
+      .aff-hero-inner { padding: 110px 0 70px; }
       .aff-about, .aff-gift, .aff-planning, .aff-contact { padding: 60px 0; }
       .aff-about h2,
       .aff-gift-card h2,
@@ -597,7 +606,7 @@
     @media (max-width: 767px) {
       .aff-hero h1 { font-size: 34px; }
       .aff-hero h1 .accent { font-size: 26px; }
-      .aff-hero-inner { padding: 120px 0 60px; }
+      .aff-hero-inner { padding: 100px 0 60px; }
       .aff-hero-meta { gap: 14px; }
       .aff-hero-desc { font-size: 14px; }
       .btn-aff-primary, .btn-aff-outline { padding: 11px 20px; font-size: 13px; }
@@ -612,7 +621,6 @@
       .aff-gift-emoji { font-size: 48px; }
       .aff-cta-strip { padding: 22px 22px; text-align: center; }
       .aff-cta-strip .cta-text { font-size: 15px; }
-      .aff-book-demo { margin-left: 0; margin-top: 10px; }
     }
     @media (max-width: 480px) {
       .aff-hero h1 { font-size: 28px; }
@@ -641,10 +649,11 @@
           <li class="dropdown"><a href="/features"><span>Features</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a></li>
           <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a></li>
           <li><a href="/#contact">Contact</a></li>
+          <li class="d-xl-none"><a href="#book">Book a Demo</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a href="#book" class="aff-book-demo d-none d-md-inline-flex">Book a Demo</a>
+      <a href="#book" class="aff-book-demo d-none d-xl-inline-flex">Book a Demo</a>
     </div>
   </header>
   <!-- /Site Header -->
