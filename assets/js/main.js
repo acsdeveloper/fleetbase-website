@@ -307,6 +307,80 @@ document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqIte
     });
   }
 })();
+
+(() => {
+  "use strict";
+
+  const form = document.querySelector("#aff-meeting-form");
+  if (!form) return;
+
+  const loading = form.querySelector(".aff-form-loading");
+  const errorMessage = form.querySelector(".aff-form-error");
+  const sentMessage = form.querySelector(".aff-form-sent");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      event.stopPropagation();
+      form.classList.add("was-validated");
+      return;
+    }
+
+    errorMessage.style.display = "none";
+    sentMessage.style.display = "none";
+    loading.style.display = "block";
+
+    try {
+      const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      if (!turnstileToken) {
+        throw new Error("Please complete the security check.");
+      }
+
+      const formData = new FormData(form);
+      const data = {
+        source: "aff",
+        fullName: formData.get("full-name"),
+        companyName: formData.get("company-name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        fleetSize: formData.get("fleet-size"),
+        role: formData.get("role"),
+        message: formData.get("message"),
+        turnstileToken,
+      };
+
+      const response = await fetch("/mail/send/index.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "token": "zQew5L8ZHQb4VkBoEXM6JEtKw7WXByQVAzBccYRF76VBKpQVDbsrTw4gPDAo148K",
+        },
+        body: JSON.stringify(data),
+      });
+
+      loading.style.display = "none";
+
+      if (response.ok) {
+        sentMessage.style.display = "block";
+        form.reset();
+        form.classList.remove("was-validated");
+        if (window.turnstile) window.turnstile.reset();
+      } else {
+        const responseData = await response.json().catch(() => ({}));
+        errorMessage.style.display = "block";
+        errorMessage.textContent =
+          responseData.message || "Failed to send your request.";
+      }
+    } catch (error) {
+      loading.style.display = "none";
+      errorMessage.style.display = "block";
+      errorMessage.textContent =
+        "An error occurred while sending your request. " + error.message;
+      console.error(error);
+    }
+  });
+})();
   /**
    * AI Features Slider is now handled by Swiper (see HTML for config)
    */
