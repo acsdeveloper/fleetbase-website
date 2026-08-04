@@ -1,73 +1,70 @@
-name: Live Deployment via SSH
+name: Live Deployment via SSM
 
-on:
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to deploy'
-        required: true
-        default: 'main'
+  on:
+    workflow_dispatch:
+      inputs:
+        branch:
+          description: 'Branch to deploy'
+          required: true
+          default: 'main'
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.event.inputs.branch == 'main'
-    environment: production
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      if: github.event.inputs.branch == 'main'
+      environment: production
+      steps:
+        - name: Checkout repository at requested branch
+          uses: actions/checkout@v6
+          with:
+            ref: ${{ github.event.inputs.branch }}
 
-      - name: Inject Google Analytics
-        run: |
-          GA_SNIPPET='<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8ER3NY2XD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-N8ER3NY2XD");</script>'
-          
-          find . -name "*.html" | while read -r file; do
-            if ! grep -q "G-N8ER3NY2XD" "$file"; then
-              sed -i "s@</head>@${GA_SNIPPET}</head>@g" "$file"
-            fi
-          done
-      - name: Deploy atomically via rsync + symlink swap
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION }}
 
-          RELEASE=$(date +%Y%m%d%H%M%S)
-          RELEASES_BASE="/var/www/html/fleetyes.com/releases"
-          RELEASE_DIR="$RELEASES_BASE/$RELEASE"
-          CURRENT="/var/www/html/fleetyes.com/htdocs"
-          SSH="ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}"
+        - name: Deploy via SSM
+          run: |
+            set -euo pipefail
+            SHA="${{ github.sha }}"
+            GA_ID="${{ secrets.GA_MEASUREMENT_ID }}"  
+ INSTANCE_ID="${{ secrets.EC2_INSTANCE_ID }}"
 
-          SHARED="/var/www/html/fleetyes.com/shared"
+            COMMAND_ID=$(aws ssm send-command \
+              --instance-ids "$INSTANCE_ID" \
+              --document-name "AWS-RunShellScript" \
+              --parameters commands="sudo -u ubuntu /opt/deploy/deploy.sh $SHA $GA_ID" \
+              --query "Command.CommandId" \
+              --output text)
 
-          # Prepare directories; migrate existing htdocs on first run
-          $SSH "
-            mkdir -p $RELEASES_BASE $SHARED/mail/send
-            if [ -d '$CURRENT' ] && [ ! -L '$CURRENT' ]; then
-              mv '$CURRENT' '$RELEASES_BASE/pre_atomic'
-            fi
-            mkdir -p $RELEASE_DIR
-          "
+            echo "SSM Command ID: $COMMAND_ID"
 
-          # Sync files into the new release directory (no --delete here)
-          rsync -avz \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='node_modules/' \
-            --exclude='.env' \
-            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }}" \
-            . "${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:$RELEASE_DIR/"
+            # Poll until the command finishes (max ~5 minutes)
+            for i in $(seq 1 60); do
+              STATUS=$(aws ssm get-command-invocation \
+                --command-id "$COMMAND_ID" \
+                --instance-id "$INSTANCE_ID" \
+                --query "Status" --output text 2>/dev/null || echo "Pending")
 
-          # Link shared .env into this release
-          $SSH "ln -sfn $SHARED/mail/send/.env $RELEASE_DIR/mail/send/.env"
+              if [[ "$STATUS" != "Pending" && "$STATUS" != "InProgress" && "$STATUS" != "Delayed" ]]; then
+                break
+              fi
+              sleep 5
+            done
 
-          # Install PHP dependencies on the server for this release
-          $SSH "cd $RELEASE_DIR && composer install --no-dev --optimize-autoloader"
+            echo "=== deploy.sh stdout ==="
+            aws ssm get-command-invocation --command-id "$COMMAND_ID" --instance-id "$INSTANCE_ID" \
+              --query "StandardOutputContent" --output text
 
-          # Atomically swap symlink, then prune old releases (keep last 3)
-          $SSH "
-            ln -sfn $RELEASE_DIR ${CURRENT}_new
-            mv -T ${CURRENT}_new $CURRENT
-            ls -1dt $RELEASES_BASE/*/ 2>/dev/null | tail -n +4 | xargs -r rm -rf
-          "
+            echo "=== deploy.sh stderr ==="
+            aws ssm get-command-invocation --command-id "$COMMAND_ID" --instance-id "$INSTANCE_ID" \
+              --query "StandardErrorContent" --output text
+
+            if [[ "$STATUS" != "Success" ]]; then
+              echo "Deploy failed with SSM status: $STATUS"
+              exit 1
+            fi  
+ echo "Deploy succeeded."
