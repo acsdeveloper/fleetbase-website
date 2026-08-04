@@ -1,6 +1,6 @@
 name: Live Deployment via SSM
 
-  on:
+on:
     workflow_dispatch:
       inputs:
         branch:
@@ -31,7 +31,7 @@ name: Live Deployment via SSM
             set -euo pipefail
             SHA="${{ github.sha }}"
             GA_ID="${{ secrets.GA_MEASUREMENT_ID }}"  
- INSTANCE_ID="${{ secrets.EC2_INSTANCE_ID }}"
+            INSTANCE_ID="${{ secrets.EC2_INSTANCE_ID }}"
 
             COMMAND_ID=$(aws ssm send-command \
               --instance-ids "$INSTANCE_ID" \
@@ -67,4 +67,4 @@ name: Live Deployment via SSM
               echo "Deploy failed with SSM status: $STATUS"
               exit 1
             fi  
- echo "Deploy succeeded."
+            echo "Deploy succeeded."
