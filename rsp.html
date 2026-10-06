@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Coming Soon – FleetYes</title>
+  <meta name="description" content="Full details of an upcoming FleetYes announcement will be published here shortly. Contact our team for enquiries." />
+  <!-- Placeholder page: remove noindex once the event content is live -->
+  <meta name="robots" content="noindex,follow" />
+
+  <!-- Favicons -->
+  <link href="assets/img/fleetyes.svg" rel="icon" />
+  <link href="assets/img/fleetyes.svg" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green:       #496453;
+      --green-dk:    #344a3c;
+      --green-lt:    #5a7a65;
+      --green-pale:  #eef3f0;
+      --charcoal:    #2f3237;
+      --slate:       #5e636e;
+      --off-white:   #f5f6f8;
+      --border:      #e2e6ea;
+    }
+
+    body { font-family: var(--default-font); }
+
+    .rsp-page-wrap { padding-top: 72px; }
+
+    /* White header — always solid on this page */
+    .rsp-page .header {
+      --background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .rsp-page .header .logo img { filter: none; }
+    .rsp-page .header .logo h1 { color: var(--charcoal); }
+    .rsp-page .navmenu a, .rsp-page .navmenu a:hover { color: var(--charcoal); }
+    .rsp-page.scrolled .header { box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+    .rsp-page:not(.mobile-nav-active) .mobile-nav-toggle { color: var(--charcoal); }
+
+    /* ── Coming soon hero ────────────────────── */
+    .rsp-hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #314338 0%, var(--green) 100%);
+      color: #fff;
+      text-align: center;
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      padding: 88px 20px 96px;
+    }
+
+    /* Soft decorative rings */
+    .rsp-hero::before,
+    .rsp-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+    .rsp-hero::before { width: 640px; height: 640px; top: -260px; right: -200px; }
+    .rsp-hero::after  { width: 480px; height: 480px; bottom: -240px; left: -160px; }
+
+    .rsp-hero .container { position: relative; z-index: 1; }
+
+    .rsp-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .rsp-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      animation: rsp-pulse 1.8s ease-out infinite;
+    }
+
+    @keyframes rsp-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+      100% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rsp-pulse { animation: none; }
+    }
+
+    .rsp-hero h1 {
+      font-family: var(--heading-font);
+      font-size: 3.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    .rsp-hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 36px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    .rsp-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .rsp-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--green) !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 14px 32px;
+      border-radius: 5px;
+      text-decoration: none !important;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+
+    .rsp-hero-cta:hover {
+      background: var(--green-pale);
+      transform: translateY(-2px);
+      color: var(--green-dk) !important;
+    }
+
+    .rsp-hero-cta.ghost {
+      background: transparent;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.45);
+      box-shadow: none;
+    }
+
+    .rsp-hero-cta.ghost:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff !important;
+    }
+
+    .rsp-hero .rsp-hero-note {
+      margin: 36px auto 0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .rsp-hero-note a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .rsp-hero { padding: 64px 16px 72px; }
+      .rsp-hero h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
+      .rsp-hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body class="rsp-page" style="--vasp-banner-height: 0px;">
+
+  <!-- Site Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/fleetyes.svg" alt="FleetYes">
+        <h1 class="sitename">FleetYes</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <div class="rsp-page-wrap">
+
+    <!-- Coming Soon -->
+    <section class="rsp-hero">
+      <div class="container" data-aos="fade-up">
+        <div class="rsp-hero-tag">
+          <span class="rsp-pulse"></span>
+          Coming Soon
+        </div>
+        <h1>An Upcoming Announcement<br>from FleetYes</h1>
+        <p>Full details will be published on this page shortly. To learn more in advance or to arrange a conversation with our team, please get in touch.</p>
+        <div class="rsp-hero-actions">
+          <a href="/#contact" class="rsp-hero-cta">
+            Contact Our Team
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/features" class="rsp-hero-cta ghost">View Platform Features</a>
+        </div>
+        <p class="rsp-hero-note">For enquiries, contact <a href="mailto:sales@fleetyes.com">sales@fleetyes.com</a></p>
+      </div>
+    </section>
+
+  </div><!-- /rsp-page-wrap -->
+
+  <!-- Site Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <img src="assets/img/fleetyes.svg" alt="FleetYes">
+            <span class="sitename">FleetYes</span>
+          </a>
+          <div class="footer-contact pt-3"></div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Location</h4>
+          <p>Suite RA01<br>195-197 Wood Street<br>London E17 3NU<br>United Kingdom</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4>Contact</h4>
+          <p class="d-none"><strong>Phone:</strong> <span>+44 20 3290 3256</span></p>
+          <p><strong>Email:</strong> <span>sales@fleetyes.com</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="row gy-4">
+        <div class="col-12 text-center">
+          <a href="/privacy-policy">Privacy Policy</a> |
+          <a href="/extension-privacy">Extension Privacy</a> |
+          <a href="#" id="open_preferences_center">Cookie Policy</a> |
+          <a href="/terms-and-conditions">Terms and Conditions</a>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <p>&copy; 2026 FleetYes. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script type="text/javascript" src="assets/js/cookie-consent.js" charset="UTF-8"></script>
+  <script type="text/javascript" charset="UTF-8">
+    document.addEventListener('DOMContentLoaded', function () {
+      cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "express", "palette": "dark", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "FleetYes" });
+    });
+  </script>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+    });
+  </script>
+
+</body>
+</html>
